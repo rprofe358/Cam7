@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Cámara 7.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Cámara 7" startnode="3" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="F79E1BD6-A2FE-47AD-9AFA-A0523BFEECF8" options="" tags="" zoom="0.5" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+<tw-storydata name="Cámara 7" startnode="3" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="F79E1BD6-A2FE-47AD-9AFA-A0523BFEECF8" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
   background-color: #0d0f10;
   color: #e4e4e4;
   font-family: Georgia, "Times New Roman", serif;
@@ -21,6 +21,7 @@ tw-link, .enchantment-link { color: #e8c547; font-weight: bold; }
 tw-link:hover, .enchantment-link:hover { color: #ffffff; }
 img, video {
   display: block;
+  width: 100%;
   max-width: 100%;
   margin: 1.2em auto 0.4em;
   border: 1px solid #2a2d30;
@@ -57,43 +58,91 @@ img, video {
   margin: 1em 0;
   font-size: 0.95em;
   color: #cfcfcf;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Configuracion" tags="startup" position="100,400" size="100,100">{(set: $horas to 5)(set: $ruta to &quot;&quot;)(set: $hub to &quot;HubSara&quot;)
+}
+.registro {
+  font-family: "Courier New", monospace;
+  font-size: 0.85em;
+  background: #15181a;
+  border: 1px solid #2a2d30;
+  padding: 0.8em 1em;
+  margin: 1em 0;
+  color: #cfcfcf;
+}
+
+/* ---- Diálogos: |montiel>[texto] muestra el nombre del personaje ---- */
+tw-hook[name="montiel"], tw-hook[name="sara"], tw-hook[name="beto"],
+tw-hook[name="valeria"], tw-hook[name="herrera"], tw-hook[name="ruiz"] {
+  display: block;
+  margin: 0.45em 0;
+}
+tw-hook[name="montiel"] + br, tw-hook[name="sara"] + br, tw-hook[name="beto"] + br,
+tw-hook[name="valeria"] + br, tw-hook[name="herrera"] + br, tw-hook[name="ruiz"] + br {
+  display: none;
+}
+tw-hook[name="montiel"]::before, tw-hook[name="sara"]::before, tw-hook[name="beto"]::before,
+tw-hook[name="valeria"]::before, tw-hook[name="herrera"]::before, tw-hook[name="ruiz"]::before {
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.8em;
+  letter-spacing: 0.08em;
+  margin-right: 0.6em;
+}
+tw-hook[name="montiel"]::before { content: "MONTIEL"; color: #e8c547; }
+tw-hook[name="sara"]::before    { content: "SARA";    color: #5fc4b8; }
+tw-hook[name="beto"]::before    { content: "BETO";    color: #e89b4f; }
+tw-hook[name="valeria"]::before { content: "VALERIA"; color: #9fc3ff; }
+tw-hook[name="herrera"]::before { content: "HERRERA"; color: #b0b0b0; }
+tw-hook[name="ruiz"]::before    { content: "RUIZ";    color: #c9a0dc; }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Configuracion" tags="startup" position="100,400" size="100,100">{(set: $horas to 5)(set: $ruta to &quot;&quot;)(set: $hub to &quot;HubSara&quot;)
 (set: $camInt to true)(set: $camServ to true)(set: $cam7 to false)
-(set: $cam7Vista to false)(set: $montielAlerta to false)(set: $montielVioSara to false)
-(set: $usb to false)(set: $usbPerdida to false)(set: $falso to false)(set: $recibo to false)
-(set: $seguro to false)(set: $plan to false)(set: $sello to false)(set: $muelle to false)
-(set: $desliz to false)(set: $chaqueta to false)(set: $arma to false)(set: $identificado to false)
-(set: $coartadaBeto to false)(set: $saraPerdida to false)(set: $plantado to false)
-(set: $apagonHecho to false)(set: $objetivo to &quot;beto&quot;)(set: $furgonCancelado to false)(set: $crimen to false)}</tw-passagedata><tw-passagedata pid="2" name="Libreta" tags="" position="250,400" size="100,100">{&lt;div class=&quot;libreta&quot;&gt;&#39;&#39;Tu libreta&#39;&#39;&lt;br&gt;
+(set: $cam7Vista to false)(set: $montielAlerta to false)(set: $saraAlerta to false)
+(set: $usb to false)(set: $usbPerdida to false)(set: $casilleroVacio to false)
+(set: $falso to false)(set: $seguro to false)(set: $plan to false)(set: $maletin to false)
+(set: $sello to false)(set: $puertaLog to false)(set: $vivo to false)(set: $horaMuerte to false)
+(set: $reciboLeido to false)(set: $coartadaBeto to false)
+(set: $llamada to false)(set: $huellas to false)(set: $reciboReal to false)(set: $estatura to false)
+(set: $armaSara to false)(set: $intentoTirar to false)(set: $deslizSara to false)(set: $zapatos to false)(set: $angulo to false)
+(set: $apagonHecho to false)(set: $saraFugada to false)(set: $furgonCancelado to false)(set: $pistasSara to 0)}</tw-passagedata><tw-passagedata pid="2" name="Libreta" tags="" position="250,400" size="100,100">{&lt;div class=&quot;libreta&quot;&gt;&#39;&#39;Tu libreta&#39;&#39;&lt;br&gt;
 (if: $coartadaBeto)[• Beto no vino anoche: deja su tarjeta en el casillero y su carro está en el taller.&lt;br&gt;]
 (if: $sello)[• La bóveda se abrió a la 1:35 con el código maestro.&lt;br&gt;]
-(if: $cam7Vista)[• La cámara 7 nunca estuvo dañada.&lt;br&gt;]
+(if: $cam7Vista)[• La cámara 7 nunca estuvo dañada: alguien la reconectó.&lt;br&gt;]
 (if: $falso)[• La esmeralda del collar es una copia.&lt;br&gt;]
-(if: $recibo)[• Montiel pagó una réplica del collar en 2019.&lt;br&gt;]
-(if: $seguro)[• El seguro subió a 4 millones e incluye robo en traslado.&lt;br&gt;]
+(if: $reciboLeido)[• Según Sara, Montiel pagó una réplica del collar en 2019.&lt;br&gt;]
+(if: $reciboReal)[• El recibo de la réplica de 2019 dice: «Retira: S. Villamil».&lt;br&gt;]
+(if: $seguro)[• Montiel subió el seguro a 4 millones, con robo en traslado.&lt;br&gt;]
 (if: $plan)[• El furgón pasará sin escolta por el puente a las 9:20.&lt;br&gt;]
-(if: $muelle)[• Alguien entró por el muelle de carga con zapatos de vestir.&lt;br&gt;]
+(if: $maletin)[• El maletín de Montiel tenía el plan del asalto al furgón.&lt;br&gt;]
+(if: $puertaLog)[• La puerta del muelle se abrió a la 1:44, a las 2:03 y a las 2:16.&lt;br&gt;]
+(if: $huellas)[• En el muelle hay huellas pequeñas de suela lisa.&lt;br&gt;]
+(if: $llamada)[• Ernesto llamó a Sara a la 1:52.&lt;br&gt;]
 (if: $usb and not $usbPerdida)[• Tienes la grabación de la cámara 7.&lt;br&gt;]
-(if: $usbPerdida)[• La grabación quedó en la oficina de Montiel.&lt;br&gt;]
-(if: $desliz)[• Montiel nombró el pisapapeles de bronce sin que nadie se lo dijera.&lt;br&gt;]
-(if: $chaqueta)[• En el carro de Montiel hay una chaqueta de vigilante mojada.&lt;br&gt;]
-(if: $arma)[• Encontraste el pisapapeles de bronce.&lt;br&gt;]
-(if: $identificado)[• Viste un reloj dorado en la figura del apagón.&lt;br&gt;]
-(if: $saraPerdida)[• Sara desapareció del edificio.&lt;br&gt;]
-(if: $montielAlerta)[• Montiel sabe que sospechas de él.&lt;br&gt;]
+(if: $usbPerdida)[• La grabación de la cámara 7 ya no está en tu poder.&lt;br&gt;]
+(if: $casilleroVacio)[• Alguien vació el casillero de Ernesto durante el apagón.&lt;br&gt;]
+(if: $vivo)[• Ernesto seguía vivo cuando Montiel se fue.&lt;br&gt;]
+(if: $horaMuerte)[• La forense cree que murió cerca de las 2:10.&lt;br&gt;]
+(if: $angulo)[• Quien lo golpeó era bastante más bajo que Ernesto.&lt;br&gt;]
+(if: $estatura)[• La figura de la cámara 2 es baja; la chaqueta le queda enorme.&lt;br&gt;]
+(if: $deslizSara)[• Sara sabía que el arma fue el pisapapeles de la recepción.&lt;br&gt;]
+(if: $zapatos)[• Los zapatos planos de Sara estaban mojados.&lt;br&gt;]
+(if: $armaSara)[• Durante el apagón, Sara tenía el pisapapeles.&lt;br&gt;]
+(if: $intentoTirar)[• Sara intentó tirarlo al canal.&lt;br&gt;]
+(if: $saraFugada)[• Sara desapareció durante el apagón.&lt;br&gt;]
+(if: $montielAlerta)[• Montiel sabe que lo estás investigando.&lt;br&gt;]
+(if: $saraAlerta)[• Sara sabe que sospechas de ella.&lt;br&gt;]
 &lt;/div&gt;}</tw-passagedata><tw-passagedata pid="3" name="Inicio" tags="" position="100,100" size="100,100">&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/portada.png&quot; alt=&quot;&quot;&gt;
 
 &#39;&#39;CÁMARA 7&#39;&#39;
 
-//Una noche. Tres aliados posibles. Siete cámaras, y alguien más mirándolas.//
+//Una noche. Tres personas que se ofrecen a ayudarte. Siete cámaras, y alguien más mirándolas.//
 
-Una historia interactiva de investigación. Elige con quién investigas, administra tu tiempo y decide qué cámaras dejas encendidas. No todo lo que ves, lo ves sola.
+Una historia interactiva de investigación. Elige con quién investigas, administra tu tiempo y decide qué cámaras dejas encendidas. No todo lo que ves, lo ves sola. Y no todo el que parece culpable lo es.
 
 [[Comenzar-&gt;Llamada]]</tw-passagedata><tw-passagedata pid="4" name="Llamada" tags="" position="250,100" size="100,100">&#39;&#39;2:50 a. m.&#39;&#39;
 
 El celular vibra sobre la mesa de noche. Es el comisionado Herrera.
 
-—Duarte, tenemos un muerto en la Casa de Subastas Montiel. El vigilante nocturno. A las diez de la mañana se subasta ahí el Collar de la Candelaria, una joya colonial de esmeraldas. La pieza más cara del año. El dueño está desesperado.
+|herrera&gt;[Duarte, tenemos un muerto en la Casa de Subastas Montiel. El vigilante nocturno. A las diez de la mañana se subasta ahí el Collar de la Candelaria, una joya colonial de esmeraldas. La pieza más cara del año.]
+|valeria&gt;[¿Algo robado?]
+|herrera&gt;[Nada. Por eso no me gusta.]
 
 Valeria se viste a oscuras. Afuera llueve.
 
@@ -101,44 +150,49 @@ Valeria se viste a oscuras. Afuera llueve.
 
 Julián Montiel la espera en la entrada, bajo el alero. Traje impecable, a pesar de la hora. Un reloj dorado le brilla en la muñeca cuando le extiende la mano.
 
-—Detective, gracias por venir tan rápido. Esto es una pesadilla. ¿Le ofrezco un café? Lo acabo de preparar.
+|montiel&gt;[Detective, gracias por venir tan rápido. Esto es una pesadilla.]
+|montiel&gt;[¿Le ofrezco un café? Lo acabo de preparar.]
 
 [[Aceptar el café-&gt;CafeAceptado]]
-[[Ir directo a la escena-&gt;DirectoEscena]]</tw-passagedata><tw-passagedata pid="6" name="CafeAceptado" tags="" position="550,25" size="100,100">Montiel sonríe, aliviado, y le sirve una taza.
+[[Ir directo a la escena-&gt;DirectoEscena]]</tw-passagedata><tw-passagedata pid="6" name="CafeAceptado" tags="" position="550,25" size="100,100">Montiel le sirve una taza. Le tiemblan un poco las manos.
 
-—Ernesto llevaba once años con nosotros. Era como de la familia —dice, y baja la voz—. Usted entiende que la subasta no se puede cancelar, ¿verdad? Hay compradores que vinieron desde Europa.
+|montiel&gt;[Ernesto llevaba once años con nosotros. Era como de la familia.]
+|valeria&gt;[¿A qué hora se fue usted anoche?]
+|montiel&gt;[A las once, como siempre. Me enteré por la llamada de la empresa de seguridad.]
 
-El café está bueno. Demasiado bueno para alguien que dice estar en shock.
+[[Ir a la sala de monitores-&gt;EscenaCrimen]]</tw-passagedata><tw-passagedata pid="7" name="DirectoEscena" tags="" position="550,175" size="100,100">Montiel deja la taza sobre el mostrador.
 
-[[Ir a la sala de monitores-&gt;EscenaCrimen]]</tw-passagedata><tw-passagedata pid="7" name="DirectoEscena" tags="" position="550,175" size="100,100">Por un segundo, la sonrisa de Montiel se congela. Luego deja la taza sobre el mostrador.
-
-—Claro, claro. Por aquí, detective.
-
-Camina rápido, demasiado rápido, hacia la sala de monitores.
+|montiel&gt;[Claro. Por aquí, detective.]
+|valeria&gt;[¿A qué hora se fue usted anoche?]
+|montiel&gt;[A las once, como siempre.]
 
 [[Entrar a la sala de monitores-&gt;EscenaCrimen]]</tw-passagedata><tw-passagedata pid="8" name="EscenaCrimen" tags="" position="700,100" size="100,100">&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/sala-monitores.png&quot; alt=&quot;&quot;&gt;
 
-Ernesto Salgado está tendido junto a la consola, con un golpe en la base del cráneo. La forense Ruiz se quita los guantes.
+Ernesto Salgado está tendido junto a la consola, con un golpe en la base del cráneo. La patrulla de la empresa de seguridad lo encontró a las 2:35, cuando el sistema dejó de responder. La forense Ruiz se quita los guantes.
 
-La patrulla de la empresa de seguridad lo encontró a las 2:35, cuando el sistema dejó de responder.
-
-—Golpe contundente. Murió entre la 1:30 y las 2:15. Y el objeto con que lo golpearon no está en esta sala.
+|ruiz&gt;[Golpe contundente. Murió entre la 1:30 y las 2:15. Y el objeto con que lo golpearon no está en esta sala.]
 
 Sobre la consola hay siete monitores y tres interruptores. Seis pantallas muestran pasillos vacíos. La séptima está en negro:
 
 &lt;div class=&quot;cam&quot;&gt;CAM 07 — ANTESALA BÓVEDA — SIN SEÑAL&lt;/div&gt;
 
-—Esa cámara lleva meses dañada —se apresura a decir Montiel—. Y no se preocupe por las demás: las puedo ver todas desde mi celular, por si necesita cualquier cosa.
+|montiel&gt;[Esa cámara está dañada desde julio. Las demás las puedo ver desde mi celular, por si necesita algo.]
 
-La bóveda está cerrada y el collar sigue en su vitrina. No se robaron nada. Entonces, ¿por qué matar a Ernesto?
+Un patrullero le entrega a Valeria el registro de accesos. Solo una tarjeta se usó en toda la madrugada:
 
-Herrera llama otra vez: //&quot;Solo tengo dos patrulleros para ti, Duarte. Apóyate en alguien de la casa que conozca el lugar. Tienes hasta el amanecer.&quot;//
+&lt;div class=&quot;registro&quot;&gt;02:14 — PASILLO DE ACCESO — Tarjeta 014 — Alberto «Beto» Castaño&lt;/div&gt;
 
-Tres personas se ofrecen a ayudar. Sara Villamil, la tasadora, que conoce cada joya de la casa. Beto Castaño, el vigilante de día, que conoce cada pasillo. Y el propio Montiel, que insiste en acompañarla personalmente.
+En la recepción esperan dos empleados que la patrulla hizo venir. Sara Villamil, la tasadora, llegó primero: vive a tres cuadras. Tiene los ojos rojos y abraza una libreta de cuero. Beto Castaño, el vigilante de día, llegó después, con los nudillos raspados.
+
+Herrera vuelve a llamar.
+
+|herrera&gt;[Solo tengo dos patrulleros para ti. Apóyate en alguien de la casa que conozca el lugar. Tienes hasta el amanecer.]
+
+Los tres se ofrecen a ayudar. Sara conoce cada joya de la casa. Beto conoce cada pasillo. Y Montiel insiste en acompañarla personalmente.
 
 [[Investigar con Sara, la tasadora-&gt;RutaSara]]
 [[Investigar con Beto, el vigilante-&gt;RutaBeto]]
-[[Rechazarlos y dejar que Montiel te acompañe-&gt;RutaSola]]</tw-passagedata><tw-passagedata pid="9" name="Consola" tags="" position="1900,500" size="100,100">&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/consola.png&quot; alt=&quot;&quot;&gt;
+[[Dejar que Montiel te acompañe-&gt;RutaSola]]</tw-passagedata><tw-passagedata pid="9" name="Consola" tags="" position="2150,500" size="100,100">&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/consola.png&quot; alt=&quot;&quot;&gt;
 
 &#39;&#39;Consola de cámaras&#39;&#39;
 
@@ -146,61 +200,77 @@ Tres interruptores gastados, cada uno con una cinta de papel escrita a mano. Lo 
 
 {&lt;div class=&quot;consola&quot;&gt;
 CAM 01–03 · INTERIORES:
-(if: $camInt)[&lt;span class=&quot;on&quot;&gt;● ENCENDIDAS&lt;/span&gt; · (link: &quot;Apagar&quot;)[(set: $camInt to false)(go-to: &quot;Consola&quot;)]](else:)[&lt;span class=&quot;off&quot;&gt;○ APAGADAS&lt;/span&gt; · (link: &quot;Encender&quot;)[(set: $camInt to true)(go-to: &quot;Consola&quot;)]]&lt;br&gt;
+(if: $camInt)[&lt;span class=&quot;on&quot;&gt;● ENCENDIDAS&lt;/span&gt; · (link: &quot;Apagar&quot;)[(set: $camInt to false)(go-to: &quot;Consola&quot;)] ](else:)[&lt;span class=&quot;off&quot;&gt;○ APAGADAS&lt;/span&gt; · (link: &quot;Encender&quot;)[(set: $camInt to true)(go-to: &quot;Consola&quot;)] ]&lt;br&gt;
 CAM 04–06 · SERVICIO:
-(if: $camServ)[&lt;span class=&quot;on&quot;&gt;● ENCENDIDAS&lt;/span&gt; · (link: &quot;Apagar&quot;)[(set: $camServ to false)(go-to: &quot;Consola&quot;)]](else:)[&lt;span class=&quot;off&quot;&gt;○ APAGADAS&lt;/span&gt; · (link: &quot;Encender&quot;)[(set: $camServ to true)(go-to: &quot;Consola&quot;)]]&lt;br&gt;
+(if: $camServ)[&lt;span class=&quot;on&quot;&gt;● ENCENDIDAS&lt;/span&gt; · (link: &quot;Apagar&quot;)[(set: $camServ to false)(go-to: &quot;Consola&quot;)] ](else:)[&lt;span class=&quot;off&quot;&gt;○ APAGADAS&lt;/span&gt; · (link: &quot;Encender&quot;)[(set: $camServ to true)(go-to: &quot;Consola&quot;)] ]&lt;br&gt;
 CAM 07 · ANTESALA BÓVEDA:
-(if: $cam7)[&lt;span class=&quot;on&quot;&gt;● ENCENDIDA&lt;/span&gt; · (link: &quot;Apagar&quot;)[(set: $cam7 to false)(go-to: &quot;Consola&quot;)]](else:)[&lt;span class=&quot;off&quot;&gt;○ SIN SEÑAL&lt;/span&gt; · (link: &quot;Probar el interruptor&quot;)[(set: $cam7 to true)(set: $cam7Vista to true)(set: $montielAlerta to true)(go-to: &quot;Consola&quot;)]]
+(if: $cam7)[&lt;span class=&quot;on&quot;&gt;● ENCENDIDA&lt;/span&gt; · (link: &quot;Apagar&quot;)[(set: $cam7 to false)(go-to: &quot;Consola&quot;)] ](else:)[&lt;span class=&quot;off&quot;&gt;○ SIN SEÑAL&lt;/span&gt; · (link: &quot;Probar el interruptor&quot;)[(set: $cam7 to true)(set: $cam7Vista to true)(set: $montielAlerta to true)(go-to: &quot;Consola&quot;)] ]
 &lt;/div&gt;}
 
-(if: $cam7)[//La pantalla de la cámara 7 parpadea y se enciende: la antesala, la vitrina, todo nítido. La cámara nunca estuvo dañada. En la imagen, sobre la puerta, una luz roja acaba de encenderse. Si Montiel está mirando su celular, también lo sabe.//]
+(if: $cam7)[//La pantalla de la cámara 7 parpadea y se enciende: la antesala, la vitrina, todo nítido. La cámara nunca estuvo dañada. Sobre la puerta de la antesala acaba de encenderse una luz roja. Si Montiel está mirando su celular, también lo sabe.//]
 
-//Encender o apagar las cámaras no gasta tiempo. Con las cámaras encendidas puedes ver el edificio en vivo, pero Montiel también ve lo que haces en esas zonas.//
+//Encender o apagar cámaras no gasta tiempo. Con las cámaras encendidas puedes ver el edificio en vivo, pero Montiel también ve lo que haces en esas zonas.//
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="10" name="EnVivo" tags="" position="1900,650" size="100,100">&#39;&#39;Cámaras en vivo&#39;&#39;
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="10" name="EnVivo" tags="" position="2150,650" size="100,100">&#39;&#39;Cámaras en vivo&#39;&#39;
 
 (if: $camInt)[&lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam03-vivo.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
 &lt;div class=&quot;cam&quot;&gt;CAM 03 — SALA DE EXHIBICIÓN — EN VIVO&lt;/div&gt;
-Montiel está de pie frente a la puerta de la antesala. Mira hacia arriba, hacia la cámara 7, y luego revisa su celular.
+Montiel está de pie al fondo de la sala, frente a la puerta de la antesala. Mira hacia arriba, hacia donde está la cámara 7, y luego revisa su celular.
 ]
 (if: $camServ)[&lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam04-vivo.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
-&lt;div class=&quot;cam&quot;&gt;CAM 04 — PARQUEADERO Y MUELLE — EN VIVO&lt;/div&gt;
-Alguien de traje sale al muelle de carga bajo la lluvia, se asoma al agua del canal y vuelve adentro secándose las manos con un pañuelo.
+&lt;div class=&quot;cam&quot;&gt;CAM 04 — MUELLE DE CARGA — EN VIVO&lt;/div&gt;
+Montiel sale al muelle bajo la lluvia. Se asoma al canal, algo pequeño cae al agua, y vuelve adentro secándose las manos con un pañuelo.
 ]
 (if: $cam7)[&lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam07-vivo.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
 &lt;div class=&quot;cam&quot;&gt;CAM 07 — ANTESALA BÓVEDA — EN VIVO&lt;/div&gt;
-La antesala está vacía. La vitrina brilla. Por un instante, una sombra se detiene al otro lado de la puerta y se va.
+La antesala está vacía. La vitrina brilla. Por un instante, una sombra se detiene al otro lado de la puerta, y se va.
 ]
 (unless: $camInt or $camServ or $cam7)[Todas las pantallas están en negro.]
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="11" name="RutaSara" tags="" position="400,350" size="100,100">(set: $ruta to &quot;sara&quot;)(set: $hub to &quot;HubSara&quot;)
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="11" name="Forense" tags="" position="2150,800" size="100,100">(set: $horas to it - 1)(set: $horaMuerte to true)(set: $angulo to true)
+La forense Ruiz está guardando sus instrumentos en la sala de monitores.
+
+|valeria&gt;[¿Puede afinar la hora de la muerte?]
+|ruiz&gt;[Con la temperatura del cuerpo y la rigidez, yo diría más cerca de las 2:10 que de la 1:30.]
+|ruiz&gt;[Y otra cosa. Ernesto medía 1,86. El golpe entró de abajo hacia arriba. Quien lo golpeó era bastante más bajo que él.]
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="12" name="RutaSara" tags="" position="400,350" size="100,100">(set: $ruta to &quot;sara&quot;)(set: $hub to &quot;HubSara&quot;)(set: $deslizSara to true)
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/retrato-sara.png&quot; alt=&quot;&quot;&gt;
 
-Sara Villamil tiene los ojos rojos y aprieta contra el pecho una libreta de cuero.
+Sara se seca los ojos y se pone de pie.
 
-—Conozco cada pieza de esta casa mejor que nadie —dice—. Y hay algo que tiene que saber: ayer discutí con Ernesto. Fue por el collar. Pero no quiero acusar a nadie hasta verlo de cerca.
+|sara&gt;[Conozco cada pieza de esta casa mejor que nadie. Cuente conmigo.]
+|sara&gt;[Pobre Ernesto... Con lo pesado que es ese pisapapeles de bronce de la recepción. No quiero ni imaginarlo.]
+|valeria&gt;[¿Discutió con él ayer?]
+|sara&gt;[Sí. Él creía que alguien de la casa estaba haciendo algo raro con el collar. Yo le dije que estaba paranoico.]
 
-//Con Sara puedes entender el collar mejor que nadie. Pero ella también se vuelve la testigo más valiosa... y la más expuesta.//
+Baja la voz y mira hacia la oficina de gerencia.
 
-[[Empezar la investigación-&gt;HubSara]]</tw-passagedata><tw-passagedata pid="12" name="RutaBeto" tags="" position="1000,350" size="100,100">(set: $ruta to &quot;beto&quot;)(set: $hub to &quot;HubBeto&quot;)(set: $coartadaBeto to true)
+|sara&gt;[Ahora ya no sé qué pensar.]
+
+Valeria anota la conversación en su libreta.
+
+[[Empezar la investigación-&gt;HubSara]]</tw-passagedata><tw-passagedata pid="13" name="RutaBeto" tags="" position="1100,350" size="100,100">(set: $ruta to &quot;beto&quot;)(set: $hub to &quot;HubBeto&quot;)(set: $coartadaBeto to true)
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/retrato-beto.png&quot; alt=&quot;&quot;&gt;
 
-Beto Castaño tiene la camisa mal abotonada; lo sacaron de la cama hace una hora.
+Beto se frota los nudillos raspados.
 
-—Yo conozco este edificio mejor que nadie, detective. Y le digo algo de una vez: mi tarjeta la dejo en el casillero cuando termino el turno. Anoche ni siquiera podía venir, el carro lleva una semana en el taller. Yo no fui.
+|beto&gt;[Esto me lo hice arreglando la moto de mi cuñado, antes de que pregunte.]
+|beto&gt;[Y lo de la tarjeta: yo la dejo en el casillero cuando termino el turno. Anoche ni siquiera podía venir, el carro lleva una semana en el taller.]
+|valeria&gt;[¿Hablaste con Ernesto ayer?]
+|beto&gt;[Me escribió anoche. Mire.]
 
-Duda, y baja la voz.
+Le muestra el celular. Un mensaje de las 11:40 p. m.: //&quot;Beto, mañana te cuento. Creo que don Julián está tramando algo con el collar.&quot;//
 
-—Ernesto andaba raro esta semana. Me dijo que había visto algo que no debía.
-
-[[Empezar la investigación-&gt;HubBeto]]</tw-passagedata><tw-passagedata pid="13" name="RutaSola" tags="" position="1600,350" size="100,100">(set: $ruta to &quot;sola&quot;)(set: $hub to &quot;HubSola&quot;)
+[[Empezar la investigación-&gt;HubBeto]]</tw-passagedata><tw-passagedata pid="14" name="RutaSola" tags="" position="1800,350" size="100,100">(set: $ruta to &quot;sola&quot;)(set: $hub to &quot;HubSola&quot;)
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/retrato-montiel.png&quot; alt=&quot;&quot;&gt;
 
-—Me alegra que confíe en mí, detective —dice Montiel, y se ajusta el reloj dorado—. Nadie conoce esta casa como el dueño. La acompaño a donde necesite.
+|montiel&gt;[Me alegra que confíe en mí, detective. Nadie conoce esta casa como el dueño.]
+|valeria&gt;[Entonces no se me separe.]
 
-Valeria sonríe. //A los amigos, cerca. A los sospechosos, más cerca.// Si Montiel oculta algo, lo va a tener a un metro todo el tiempo. Pero él también la va a tener a ella.
+Montiel se ajusta el reloj dorado y la invita a pasar. Si oculta algo, Valeria lo va a tener a un metro toda la noche. Pero él también la va a tener a ella.
 
-[[Empezar la investigación-&gt;HubSola]]</tw-passagedata><tw-passagedata pid="14" name="HubSara" tags="" position="400,500" size="100,100">&lt;div class=&quot;hud&quot;&gt;HORA (print: (a: &quot;06:00&quot;,&quot;05:30&quot;,&quot;05:00&quot;,&quot;04:30&quot;,&quot;04:00&quot;,&quot;03:30&quot;)&#39;s ($horas + 1)) · AMANECER 06:00&lt;/div&gt;
+[[Empezar la investigación-&gt;HubSola]]</tw-passagedata><tw-passagedata pid="15" name="HubSara" tags="" position="400,500" size="100,100">&lt;div class=&quot;hud&quot;&gt;HORA (print: (a: &quot;06:00&quot;,&quot;05:30&quot;,&quot;05:00&quot;,&quot;04:30&quot;,&quot;04:00&quot;,&quot;03:30&quot;)&#39;s ($horas + 1)) · AMANECER 06:00&lt;/div&gt;
 
 &#39;&#39;Investigación con Sara&#39;&#39;
 
@@ -217,12 +287,13 @@ Valeria sonríe. //A los amigos, cerca. A los sospechosos, más cerca.// Si Mont
 (unless: (history:) contains &quot;OficinaMontiel&quot;)[ [[Registrar la oficina de Montiel-&gt;OficinaMontiel]]&lt;br&gt; ]
 (unless: (history:) contains &quot;InterrogarBeto&quot;)[ [[Interrogar a Beto-&gt;InterrogarBeto]]&lt;br&gt; ]
 (unless: (history:) contains &quot;InterrogarMontiel&quot;)[ [[Hablar con Montiel-&gt;InterrogarMontiel]]&lt;br&gt; ]
+(unless: (history:) contains &quot;Forense&quot;)[ [[Hablar otra vez con la forense-&gt;Forense]]&lt;br&gt; ]
 &lt;br&gt;
 ](else:)[ //El cielo empieza a aclarar. Ya no hay más tiempo.//&lt;br&gt;&lt;br&gt; ]
 [[Ir a la consola de cámaras-&gt;Consola]]&lt;br&gt;
 (if: $camInt or $camServ or $cam7)[ [[Ver las cámaras en vivo-&gt;EnVivo]]&lt;br&gt; ]
 [[Esperar el amanecer-&gt;Amanecer]]
-}]</tw-passagedata><tw-passagedata pid="15" name="HubBeto" tags="" position="1000,500" size="100,100">&lt;div class=&quot;hud&quot;&gt;HORA (print: (a: &quot;06:00&quot;,&quot;05:30&quot;,&quot;05:00&quot;,&quot;04:30&quot;,&quot;04:00&quot;,&quot;03:30&quot;)&#39;s ($horas + 1)) · AMANECER 06:00&lt;/div&gt;
+}]</tw-passagedata><tw-passagedata pid="16" name="HubBeto" tags="" position="1100,500" size="100,100">&lt;div class=&quot;hud&quot;&gt;HORA (print: (a: &quot;06:00&quot;,&quot;05:30&quot;,&quot;05:00&quot;,&quot;04:30&quot;,&quot;04:00&quot;,&quot;03:30&quot;)&#39;s ($horas + 1)) · AMANECER 06:00&lt;/div&gt;
 
 &#39;&#39;Investigación con Beto&#39;&#39;
 
@@ -235,16 +306,17 @@ Valeria sonríe. //A los amigos, cerca. A los sospechosos, más cerca.// Si Mont
 (if: $horas &gt; 0)[
 (unless: (history:) contains &quot;CuartoTecnico&quot;)[ [[Revisar el cuarto técnico de las cámaras-&gt;CuartoTecnico]]&lt;br&gt; ]
 (unless: (history:) contains &quot;Muelle&quot;)[ [[Inspeccionar el muelle de carga-&gt;Muelle]]&lt;br&gt; ]
+(unless: (history:) contains &quot;CelularErnesto&quot;)[ [[Revisar el celular de Ernesto-&gt;CelularErnesto]]&lt;br&gt; ]
 (unless: (history:) contains &quot;Casilleros&quot;)[ [[Registrar los casilleros del personal-&gt;Casilleros]]&lt;br&gt; ]
-(unless: (history:) contains &quot;Boveda&quot;)[ [[Inspeccionar la bóveda-&gt;Boveda]]&lt;br&gt; ]
 (unless: (history:) contains &quot;InterrogarSara&quot;)[ [[Interrogar a Sara-&gt;InterrogarSara]]&lt;br&gt; ]
 (unless: (history:) contains &quot;InterrogarMontiel&quot;)[ [[Hablar con Montiel-&gt;InterrogarMontiel]]&lt;br&gt; ]
+(unless: (history:) contains &quot;Forense&quot;)[ [[Hablar otra vez con la forense-&gt;Forense]]&lt;br&gt; ]
 &lt;br&gt;
 ](else:)[ //El cielo empieza a aclarar. Ya no hay más tiempo.//&lt;br&gt;&lt;br&gt; ]
 [[Ir a la consola de cámaras-&gt;Consola]]&lt;br&gt;
 (if: $camInt or $camServ or $cam7)[ [[Ver las cámaras en vivo-&gt;EnVivo]]&lt;br&gt; ]
 [[Esperar el amanecer-&gt;Amanecer]]
-}]</tw-passagedata><tw-passagedata pid="16" name="HubSola" tags="" position="1600,500" size="100,100">&lt;div class=&quot;hud&quot;&gt;HORA (print: (a: &quot;06:00&quot;,&quot;05:30&quot;,&quot;05:00&quot;,&quot;04:30&quot;,&quot;04:00&quot;,&quot;03:30&quot;)&#39;s ($horas + 1)) · AMANECER 06:00&lt;/div&gt;
+}]</tw-passagedata><tw-passagedata pid="17" name="HubSola" tags="" position="1800,500" size="100,100">&lt;div class=&quot;hud&quot;&gt;HORA (print: (a: &quot;06:00&quot;,&quot;05:30&quot;,&quot;05:00&quot;,&quot;04:30&quot;,&quot;04:00&quot;,&quot;03:30&quot;)&#39;s ($horas + 1)) · AMANECER 06:00&lt;/div&gt;
 
 &#39;&#39;Investigación con Montiel a tu lado&#39;&#39;
 
@@ -255,398 +327,525 @@ Valeria sonríe. //A los amigos, cerca. A los sospechosos, más cerca.// Si Mont
 [[Algo está pasando-&gt;Apagon]]
 ](else:)[(display: &quot;Libreta&quot;){
 (if: $horas &gt; 0)[
-(unless: (history:) contains &quot;Recorrido&quot;)[ [[Dejar que Montiel te muestre la evidencia-&gt;Recorrido]]&lt;br&gt; ]
+(unless: (history:) contains &quot;Recorrido&quot;)[ [[Dejar que Montiel te muestre la grabación del pasillo-&gt;Recorrido]]&lt;br&gt; ]
 (unless: (history:) contains &quot;Carro&quot;)[ [[Salir &quot;a tomar aire&quot; y buscar el carro de Montiel-&gt;Carro]]&lt;br&gt; ]
 (unless: (history:) contains &quot;OficinaMontiel&quot;)[ [[Registrar la oficina de Montiel-&gt;OficinaMontiel]]&lt;br&gt; ]
 (unless: (history:) contains &quot;Casilleros&quot;)[ [[Registrar los casilleros del personal-&gt;Casilleros]]&lt;br&gt; ]
 (unless: (history:) contains &quot;InterrogarBeto&quot;)[ [[Interrogar a Beto-&gt;InterrogarBeto]]&lt;br&gt; ]
 (unless: (history:) contains &quot;InterrogarSara&quot;)[ [[Interrogar a Sara-&gt;InterrogarSara]]&lt;br&gt; ]
+(unless: (history:) contains &quot;Forense&quot;)[ [[Hablar otra vez con la forense-&gt;Forense]]&lt;br&gt; ]
 &lt;br&gt;
 ](else:)[ //El cielo empieza a aclarar. Ya no hay más tiempo.//&lt;br&gt;&lt;br&gt; ]
 [[Ir a la consola de cámaras-&gt;Consola]]&lt;br&gt;
 (if: $camInt or $camServ or $cam7)[ [[Ver las cámaras en vivo-&gt;EnVivo]]&lt;br&gt; ]
 [[Esperar el amanecer-&gt;Amanecer]]
-}]</tw-passagedata><tw-passagedata pid="17" name="Archivo" tags="" position="100,700" size="100,100">(set: $horas to it - 1)(set: $seguro to true)
-(if: $camInt)[(set: $montielVioSara to true)]
-&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/archivo.png&quot; alt=&quot;&quot;&gt;
-
-Estantes de catálogos encuadernados desde 1970. Sara saca el de 1998 sin dudar y lo abre en una foto a página completa del collar. Luego busca la carpeta del seguro.
-
-—Esto es raro —dice—. Hace tres meses Montiel renovó la póliza. Subió la cobertura a cuatro millones de dólares y agregó una cláusula nueva: //robo durante el traslado//. Nunca habíamos asegurado un traslado.
-
-(if: $camInt)[//En la esquina del archivo, la luz roja de la cámara 2 brilla. Todo lo que Sara acaba de mostrarte quedó a la vista de quien esté mirando.//]
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="18" name="Taller" tags="" position="250,700" size="100,100">(set: $horas to it - 1)(set: $recibo to true)(set: $falso to true)
-(if: $camServ)[(set: $montielVioSara to true)]
-&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/taller.png&quot; alt=&quot;&quot;&gt;
-
-El taller huele a solvente y a cera. Sara revisa los cajones de facturas con la rapidez de quien lo ha hecho mil veces. Se detiene en una carpeta de 2019.
-
-—Taller de Réplicas Arango —lee en voz baja—. &quot;Reproducción de collar colonial, doce esmeraldas sintéticas.&quot; Pagado por J. Montiel.
-
-Sara se queda pálida.
-
-—Nosotros nunca hemos vendido una réplica. Nunca.
-
-(if: $camServ)[//Sobre la puerta del taller, la cámara 5 tiene la luz roja encendida.//]
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="19" name="CuartoTecnico" tags="" position="850,700" size="100,100">(set: $horas to it - 1)(set: $cam7Vista to true)
-&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/cuarto-tecnico.png&quot; alt=&quot;&quot;&gt;
-
-El cuarto técnico no tiene cámara. Beto abre el gabinete del grabador y silba bajito.
-
-—Mire esto. El cable de la cámara 7 está desconectado del monitor, pero la cámara tiene su propia tarjeta de memoria. Y alguien la volvió a conectar a la corriente.
-
-Pegada al cable hay una cinta con letra temblorosa: //NO TOCAR — E.//
-
-En el registro del sistema, una orden de julio: //Desconectar CAM 07 por orden de gerencia. J. Montiel.//
-
-—La ranura de la tarjeta está vacía —dice Beto—. Ernesto se la llevó a alguna parte.
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="20" name="Muelle" tags="" position="1000,700" size="100,100">(set: $horas to it - 1)(set: $muelle to true)
-(if: $camServ)[(set: $montielAlerta to true)]
-&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/muelle.png&quot; alt=&quot;&quot;&gt;
-
-La puerta del muelle de carga está trabada con un cartón doblado para que no cierre. Es la única entrada del edificio sin cámara propia.
-
-En el piso de cemento hay huellas mojadas que van hacia el pasillo de servicio. Beto se agacha.
-
-—Esto no es bota de vigilante. Esto es zapato de vestir. Suela lisa.
-
-(if: $camServ)[//Arriba, la cámara 4 apunta directo al muelle con la luz roja encendida. Si alguien estaba mirando, sabe que encontraste la entrada.//]
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="21" name="Recorrido" tags="" position="1450,700" size="100,100">(set: $horas to it - 1)(set: $desliz to true)
-&lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam02-pasillo.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
-&lt;div class=&quot;cam&quot;&gt;CAM 02 — PASILLO DE ACCESO — 01:40:12&lt;/div&gt;
-
-Montiel pone la grabación en pausa con una seguridad de experto.
-
-—Ahí lo tiene. Chaqueta de vigilante, gorra, y la tarjeta de Beto. Me duele decirlo, detective, pero Beto debe mucha plata. Pobre Ernesto... terminar así, golpeado con el pisapapeles de bronce de la recepción.
-
-Valeria no responde. Repasa las palabras de la forense: //&quot;el objeto con que lo golpearon no está en esta sala.&quot;// Nadie ha dicho cuál fue el arma.
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="22" name="Carro" tags="" position="1600,700" size="100,100">(set: $horas to it - 1)(set: $chaqueta to true)
-&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/carro.png&quot; alt=&quot;&quot;&gt;
-
-Valeria le dice a Montiel que necesita aire. Afuera, la lluvia ha bajado. El carro de Montiel no está en el parqueadero de la casa: lo encuentra estacionado a dos cuadras, en una calle sin cámaras.
-
-Por la ventana trasera, con la linterna del celular, ve algo en el asiento: una chaqueta de vigilante y una gorra, todavía húmedas.
-
-Cuando vuelve, Montiel la espera en la puerta.
-
-—¿Mejor, detective?
-
-—Mucho mejor.
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="23" name="Boveda" tags="" position="700,700" size="100,100">(set: $horas to it - 1)(set: $sello to true)
+}]</tw-passagedata><tw-passagedata pid="18" name="Boveda" tags="" position="100,700" size="100,100">(set: $horas to it - 1)(set: $sello to true)(set: $falso to true)
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/vitrina.png&quot; alt=&quot;&quot;&gt;
 
 El collar descansa en su vitrina, bajo una luz blanca. Junto a la puerta, el panel de seguridad guarda el registro de aperturas:
 
-&lt;div class=&quot;cam&quot;&gt;ÚLTIMA APERTURA: 01:35 — CÓDIGO MAESTRO&lt;/div&gt;
+&lt;div class=&quot;registro&quot;&gt;ÚLTIMA APERTURA: 01:35 — CÓDIGO MAESTRO&lt;/div&gt;
 
-El código maestro solo lo conocen dos personas: el vigilante nocturno y el dueño.
+|sara&gt;[El código maestro solo lo tienen el vigilante nocturno y el dueño.]
 
-(if: $ruta is &quot;sara&quot;)[(set: $falso to true)(if: $camInt)[(set: $montielVioSara to true)]Sara saca una lupa del bolsillo y se inclina sobre la esmeralda central. Tarda un minuto largo.
+Sara saca una lupa del bolsillo y se inclina sobre la esmeralda central. Tarda un minuto largo.
 
-—Las inclusiones de una esmeralda son como una huella digital. Los tasadores les decimos //jardín//. Y este jardín no es el del catálogo. —Se endereza—. Es una copia, detective. Muy buena, pero una copia.
+|sara&gt;[Las inclusiones de una esmeralda son como una huella digital. Los tasadores les decimos jardín. Y este jardín no es el del catálogo.]
+|valeria&gt;[¿Me está diciendo que es falsa?]
+|sara&gt;[Una copia. Muy buena. Esto lo hizo alguien con plata y con acceso a la bóveda.]
 
-(if: $camInt)[//En la esquina, la cámara 3 tiene la luz roja encendida. Quien esté mirando acaba de ver a Sara examinar el collar con lupa.//]](else-if: $ruta is &quot;sola&quot;)[Montiel se para entre Valeria y la vitrina, como sin querer.
+No dice el nombre. No hace falta: los dos miran hacia la oficina de gerencia.
 
-—Intacto, gracias a Dios. Lo único bueno de esta noche. ¿Seguimos?](else:)[Beto mira el collar con desconfianza.
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="19" name="Archivo" tags="" position="250,700" size="100,100">(set: $horas to it - 1)(set: $seguro to true)
+&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/archivo.png&quot; alt=&quot;&quot;&gt;
 
-—Esa bóveda no se abre de noche. Nunca. Si se abrió a la 1:35, alguien tenía el código.
+Estantes de catálogos encuadernados desde 1970. Sara saca el de 1998 sin dudar y lo abre en una foto a página completa del collar. Luego busca la carpeta del seguro.
 
-El collar se ve perfecto. Sin un experto, no puedes decir más.]
+|sara&gt;[Mire esto. Hace tres meses Montiel subió la cobertura a cuatro millones de dólares y agregó una cláusula nueva: robo durante el traslado. Nunca habíamos asegurado un traslado.]
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="24" name="OficinaMontiel" tags="" position="700,900" size="100,100">(set: $horas to it - 1)(set: $plan to true)
+Valeria revisa el estante de las restauraciones. Hay carpetas de todos los años, menos una: el espacio de 2019 está vacío.
+
+|sara&gt;[Qué raro. Esa fue la última restauración del collar.]
+|sara&gt;[Alguien se la habrá llevado.]
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="20" name="Taller" tags="" position="400,700" size="100,100">(set: $horas to it - 1)
+&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/taller.png&quot; alt=&quot;&quot;&gt;
+
+El taller huele a solvente y a cera. Sara revisa los cajones de facturas con la rapidez de quien lo ha hecho mil veces. Se detiene en un recibo amarillento.
+
+|sara&gt;[Taller de Réplicas Arango, 2019. &quot;Reproducción de collar colonial, doce esmeraldas sintéticas.&quot;]
+|sara&gt;[Pagado por J. Montiel.]
+
+Guarda el recibo en su libreta.
+
+|sara&gt;[Nosotros nunca hemos vendido una réplica, detective. Nunca.]
+
+[[Confiar en su lectura-&gt;TallerConfiar]]
+[[Pedirle el recibo para leerlo tú misma-&gt;TallerVerificar]]</tw-passagedata><tw-passagedata pid="21" name="TallerConfiar" tags="" position="325,850" size="100,100">(set: $reciboLeido to true)
+|valeria&gt;[Guárdelo bien. Va a ser una prueba.]
+|sara&gt;[No lo voy a soltar.]
+
+Sara cierra la libreta y la aprieta contra el pecho.
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="22" name="TallerVerificar" tags="" position="475,850" size="100,100">(set: $reciboReal to true)(set: $saraAlerta to true)
+|valeria&gt;[¿Me lo deja ver?]
+
+Sara duda medio segundo. Luego se lo entrega con una sonrisa.
+
+&lt;div class=&quot;registro&quot;&gt;TALLER DE RÉPLICAS ARANGO — 2019&lt;br&gt;Cliente: Casa de Subastas Montiel&lt;br&gt;Reproducción de collar colonial&lt;br&gt;Pago: efectivo&lt;br&gt;Retira: S. Villamil (restauración)&lt;/div&gt;
+
+|valeria&gt;[Aquí no dice que lo pagó Montiel. Dice que lo retiró usted.]
+|sara&gt;[Claro, yo retiraba todos los encargos del taller. Pero el pedido lo hizo él. Siempre era él.]
+
+Sonríe otra vez. Esta vez tarda un poco más en hacerlo.
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="23" name="CuartoTecnico" tags="" position="900,700" size="100,100">(set: $horas to it - 1)(set: $cam7Vista to true)(set: $puertaLog to true)
+&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/cuarto-tecnico.png&quot; alt=&quot;&quot;&gt;
+
+El cuarto técnico no tiene cámara. Beto abre el gabinete del grabador.
+
+|beto&gt;[Mire. El cable de la cámara 7 está desconectado del monitor, pero la cámara tiene su propia tarjeta de memoria. Y alguien la volvió a conectar a la corriente.]
+
+Pegada al cable hay una cinta con letra temblorosa: //NO TOCAR — E.// En el registro del sistema, una orden de julio: //Desconectar CAM 07 por orden de gerencia. J. Montiel.//
+
+|beto&gt;[Y esto le va a interesar. La puerta del muelle no tiene cámara, pero sí sensor.]
+
+&lt;div class=&quot;registro&quot;&gt;PUERTA MUELLE DE CARGA&lt;br&gt;01:44 — APERTURA&lt;br&gt;02:03 — APERTURA&lt;br&gt;02:16 — APERTURA&lt;/div&gt;
+
+|beto&gt;[Tres veces. Alguien salió, alguien entró, y alguien volvió a salir.]
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="24" name="Muelle" tags="" position="1050,700" size="100,100">(set: $horas to it - 1)(set: $huellas to true)
+&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/muelle.png&quot; alt=&quot;&quot;&gt;
+
+La puerta del muelle de carga está trabada con un cartón doblado para que no cierre. Es la única entrada del edificio sin cámara propia.
+
+En el piso de cemento hay dos rastros de huellas mojadas. Unas grandes, de zapato de vestir, que salen hacia la calle. Y otras que entran y vuelven a salir.
+
+|beto&gt;[Estas otras son pequeñas. Suela lisa, sin dibujo. Como de zapato plano. Talla treinta y seis, máximo.]
+|valeria&gt;[¿Montiel?]
+|beto&gt;[Don Julián calza cuarenta y tres. Se lo digo porque una vez le presté mis botas.]
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="25" name="CelularErnesto" tags="" position="1200,700" size="100,100">(set: $horas to it - 1)(set: $llamada to true)
+La forense le entrega a Valeria el celular de Ernesto, en una bolsa de evidencia. Está bloqueado.
+
+|beto&gt;[Pruebe 0412. El cumpleaños de su hija. Lo usaba para todo.]
+
+Se desbloquea. El registro de llamadas de esa noche tiene una sola salida:
+
+&lt;div class=&quot;registro&quot;&gt;LLAMADA SALIENTE — 01:52 — «Sara V.» — 48 segundos&lt;/div&gt;
+
+|beto&gt;[¿A esa hora? ¿Para qué la llamaría a esa hora?]
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="26" name="Recorrido" tags="" position="1650,700" size="100,100">(set: $horas to it - 1)
+Montiel pone la grabación del pasillo en el monitor principal con seguridad de experto.
+
+&lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam02-pasillo.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
+&lt;div class=&quot;cam&quot;&gt;CAM 02 — PASILLO DE ACCESO&lt;/div&gt;
+
+|montiel&gt;[Ahí lo tiene. Chaqueta de vigilante, gorra, y la tarjeta de Beto a las 2:14. Me duele decirlo, detective, pero Beto debe mucha plata.]
+
+[[Pedirle que amplíe la imagen-&gt;RecorridoAmpliar]]
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="27" name="RecorridoAmpliar" tags="" position="1650,850" size="100,100">(set: $estatura to true)
+Montiel amplía la imagen de mala gana. La figura queda pixelada, pero hay cosas que se ven bien: las mangas de la chaqueta le tapan las manos, y la gorra le queda floja. Al lado del lector de tarjetas, la figura apenas le llega al marco de la puerta a la altura del hombro.
+
+|valeria&gt;[Beto es grande. Esa chaqueta es de Beto, pero esa persona no.]
+|montiel&gt;[Bueno... la cámara deforma mucho.]
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="28" name="Carro" tags="" position="1800,700" size="100,100">(set: $horas to it - 1)(set: $plan to true)
+&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/carro.png&quot; alt=&quot;&quot;&gt;
+
+Valeria le dice a Montiel que necesita aire. El carro de Montiel no está en el parqueadero de la casa: lo encuentra estacionado a dos cuadras, en una calle sin cámaras.
+
+Por la ventana trasera, con la linterna del celular, ve un estuche rígido con espuma moldeada en forma de collar, un segundo celular barato y un papel impreso con el mapa de un puente y una hora marcada con resaltador: //9:20.//
+
+Cuando vuelve, Montiel la espera en la puerta.
+
+|montiel&gt;[¿Mejor, detective?]
+|valeria&gt;[Mucho mejor.]
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="29" name="OficinaMontiel" tags="" position="700,700" size="100,100">(set: $horas to it - 1)(set: $plan to true)
 (if: $camServ)[(set: $montielAlerta to true)]
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/oficina.png&quot; alt=&quot;&quot;&gt;
 
 (if: $ruta is &quot;sola&quot;)[Montiel recibe una llamada y sale al pasillo. Valeria tiene dos minutos.](else:)[Sara vigila el pasillo mientras Valeria prueba la puerta. No tiene seguro.]
 
-Sobre el escritorio hay un correo impreso de Transportes Custodia con la ruta del furgón blindado que llevará el collar a la subasta. A mano, con tinta azul, alguien escribió al margen:
+Sobre el escritorio hay un correo impreso de Transportes Custodia con la ruta del furgón blindado que llevará el collar a la subasta. Al margen, con tinta azul, alguien escribió: //&quot;9:20 — puente de la avenida — sin escolta. Confirmar motos.&quot;//
 
-//9:20 — puente de la avenida — sin escolta.//
-
-(if: $ruta is &quot;sola&quot;)[En el escritorio, la tableta de Montiel sigue encendida: seis cuadros de cámara en vivo. En uno de ellos, Valeria se ve a sí misma de espaldas, hace un minuto, entrando a esta oficina.]
-
+(if: $ruta is &quot;sola&quot;)[En el escritorio, la tableta de Montiel sigue encendida con seis cuadros de cámara en vivo. En uno de ellos, Valeria se ve a sí misma de espaldas, hace un minuto, entrando a esta oficina.]
+(if: $ruta is &quot;sara&quot;)[|sara&gt;[¿Lo ve? Se lo dije. Él está detrás de todo.] ]
 (if: $camServ)[//La cámara 6 apunta al escritorio con la luz roja encendida. Si Montiel revisa su celular, sabrá lo que viste.//]
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="25" name="Casilleros" tags="" position="1300,900" size="100,100">(set: $horas to it - 1)(set: $usb to true)
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="30" name="Casilleros" tags="" position="1350,700" size="100,100">(set: $horas to it - 1)
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/casillero.png&quot; alt=&quot;&quot;&gt;
 
-El candado del casillero de Ernesto cede con dos golpes. Adentro hay un termo, una chaqueta y la foto de una niña con uniforme de colegio. Pegada con cinta al techo del casillero hay una tarjeta de memoria.
+(if: $casilleroVacio)[El casillero de Ernesto está forzado. Adentro hay un termo, una chaqueta y la foto de una niña con uniforme de colegio. En el techo del casillero quedan restos de cinta adhesiva, pero lo que estaba pegado ahí ya no está.
 
-Valeria la pone en su portátil. Un solo archivo: &#39;&#39;CAM07_0135.mp4&#39;&#39;.
+Alguien llegó primero.
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)](else:)[(set: $usb to true)(set: $vivo to true)El candado del casillero de Ernesto cede con dos golpes. Adentro hay un termo, una chaqueta y la foto de una niña con uniforme de colegio. Pegada con cinta al techo del casillero hay una tarjeta de memoria.
+
+Valeria la pone en su portátil. Un solo archivo de la cámara 7.
 
 &lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam07-grabacion.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
-&lt;div class=&quot;cam&quot;&gt;CAM 07 — ANTESALA BÓVEDA — 01:35:48&lt;/div&gt;
-Una silueta de traje abre la vitrina del collar. No se distingue la cara, pero cuando levanta las manos algo dorado brilla en su muñeca. A la 01:37, Ernesto entra al cuadro. La silueta se gira hacia él. La grabación se corta.
+&lt;div class=&quot;cam&quot;&gt;CAM 07 — ANTESALA BÓVEDA&lt;/div&gt;
+
+A la 1:35, Montiel abre la vitrina del collar. A la 1:37, Ernesto entra al cuadro. Discuten: Montiel le ofrece un sobre, Ernesto señala la cámara. Montiel sale del cuadro a la 1:43.
+
+Ernesto se queda solo. Saca su celular y lo mira un largo rato. Luego camina hacia la cámara, y la grabación termina.
+
+//Cuando Montiel se fue, Ernesto estaba vivo.//
 
 (if: $camServ or $ruta is &quot;sola&quot;)[Pasos en el pasillo. Alguien viene directo hacia aquí.
 
 [[Guardar la tarjeta y darte la vuelta-&gt;Confianza]]
 ](else:)[//Las cámaras de servicio están apagadas. Nadie te vio.//
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)]</tw-passagedata><tw-passagedata pid="26" name="Confianza" tags="" position="1300,1050" size="100,100">Julián Montiel está en la puerta, con el celular en la mano. (if: $ruta is &quot;sola&quot;)[Estuvo a tu lado todo el tiempo.](else:)[Llegó demasiado rápido para no haber estado mirando.]
+(link-goto: &quot;Volver a la investigación&quot;, $hub)] ]</tw-passagedata><tw-passagedata pid="31" name="Confianza" tags="" position="1350,850" size="100,100">Julián Montiel está en la puerta, con el celular en la mano. (if: $ruta is &quot;sola&quot;)[Estuvo cerca todo el tiempo.](else:)[Llegó muy rápido.]
 
-—¿Encontró algo, detective?
+|montiel&gt;[¿Encontró algo, detective?]
 
 [[Contarle lo de la grabación-&gt;ContarUSB]]
-[[Decirle que no encontraste nada-&gt;OcultarUSB]]</tw-passagedata><tw-passagedata pid="27" name="ContarUSB" tags="" position="1225,1200" size="100,100">(set: $usbPerdida to true)
-—Encontré una grabación. Puede ser clave.
-
-—¡Gracias a Dios! —Montiel parece genuinamente aliviado—. Usen mi oficina como sala de evidencias, es la única con llave.
+[[Decirle que no encontraste nada-&gt;OcultarUSB]]</tw-passagedata><tw-passagedata pid="32" name="ContarUSB" tags="" position="1275,1000" size="100,100">(set: $usbPerdida to true)
+|valeria&gt;[Encontré una grabación. Puede ser clave.]
+|montiel&gt;[Entonces hay que cuidarla. Usen mi oficina como sala de evidencias, es la única con llave.]
 
 Minutos después, la tarjeta queda guardada en un cajón de la oficina de gerencia. Montiel cierra con llave y se guarda el llavero en el bolsillo del saco.
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="28" name="OcultarUSB" tags="" position="1375,1200" size="100,100">(set: $montielAlerta to true)
-—Nada importante. Cosas personales de Ernesto.
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="33" name="OcultarUSB" tags="" position="1425,1000" size="100,100">(set: $montielAlerta to true)
+|valeria&gt;[Nada importante. Cosas personales de Ernesto.]
+|montiel&gt;[Claro. Cosas personales.]
 
-Montiel asiente despacio. Mira el bolsillo de Valeria y luego la mira a ella.
+Montiel mira el bolsillo de Valeria y luego la mira a ella. Él sabe que mientes. Y tú sabes que él lo sabe.
 
-—Claro. Cosas personales.
-
-Él sabe que mientes. Y tú sabes que él lo sabe.
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="29" name="InterrogarBeto" tags="" position="400,900" size="100,100">(set: $horas to it - 1)
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="34" name="InterrogarBeto" tags="" position="250,1150" size="100,100">(set: $horas to it - 1)
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/retrato-beto.png&quot; alt=&quot;&quot;&gt;
 
-Beto Castaño se frota las manos sin parar. Lo sacaron de la cama hace una hora.
+Beto se frota los nudillos raspados. Lo sacaron de la cama hace unas horas.
 
-—Yo no hice nada, detective. Se lo juro por mi mamá.
+|beto&gt;[Yo no hice nada, detective. Se lo juro por mi mamá.]
 
 [[Hablarle con calma-&gt;BetoEmpatia]]
-[[Presionarlo con el registro de su tarjeta-&gt;BetoPresion]]</tw-passagedata><tw-passagedata pid="30" name="BetoEmpatia" tags="" position="325,1050" size="100,100">(set: $coartadaBeto to true)
-Valeria le ofrece agua y se sienta frente a él. Beto respira hondo.
+[[Presionarlo con el registro de su tarjeta-&gt;BetoPresion]]</tw-passagedata><tw-passagedata pid="35" name="BetoEmpatia" tags="" position="175,1300" size="100,100">(set: $coartadaBeto to true)
+Valeria le ofrece agua y se sienta frente a él.
 
-—Mi tarjeta la dejo en el casillero cuando termino el turno. Todo el mundo lo sabe; hasta don Julián me regañó por eso la semana pasada. Y anoche ni siquiera podía venir: el carro lleva una semana en el taller.
+|beto&gt;[Mi tarjeta la dejo en el casillero cuando termino el turno. Todo el mundo lo sabe. Y anoche ni siquiera podía venir: el carro lleva una semana en el taller.]
+|beto&gt;[Ernesto me escribió anoche. Decía que don Julián estaba tramando algo con el collar.]
+|valeria&gt;[¿Quién sabía que dejas la tarjeta en el casillero?]
+|beto&gt;[Todos. Don Julián, Ernesto, Sara... Sara vive aquí cerquita, siempre es la primera en llegar a todo.]
 
-Duda un momento.
-
-—Ernesto andaba raro. Me dijo que había visto algo que no debía, que después de la subasta me contaba.
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="31" name="BetoPresion" tags="" position="475,1050" size="100,100">—Su tarjeta abrió el pasillo a la 1:40, Castaño. Y sé lo de sus deudas.
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="36" name="BetoPresion" tags="" position="325,1300" size="100,100">|valeria&gt;[Tu tarjeta abrió el pasillo a las 2:14, Castaño. Tienes los nudillos raspados. Y sé lo de tus deudas.]
 
 Beto se pone de pie de un golpe.
 
-—¿Y qué? ¡Debo plata, eso no me hace un asesino! No digo nada más sin un abogado.
+|beto&gt;[¡Me raspé arreglando una moto! ¿Y qué si debo plata? ¡Eso no me hace un asesino!]
+|beto&gt;[No digo nada más sin un abogado.]
 
-Valeria anota: motivo, acceso, nervios. En el papel, Beto parece el culpable perfecto.
+En el papel, Beto parece el culpable perfecto.
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="32" name="InterrogarSara" tags="" position="1600,900" size="100,100">(set: $horas to it - 1)
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="37" name="InterrogarSara" tags="" position="1750,1150" size="100,100">(set: $horas to it - 1)
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/retrato-sara.png&quot; alt=&quot;&quot;&gt;
 
 Sara Villamil tiene los ojos rojos. Aprieta contra el pecho una libreta de cuero.
 
-—Ernesto era un buen hombre —dice, sin mirar a Valeria.
-
-(if: $ruta is &quot;sola&quot;)[//Montiel espera al otro lado de la puerta de vidrio. Sara lo mira de reojo.//]
+|sara&gt;[Ernesto era un buen hombre. Pregúnteme lo que quiera.]
 
 [[Hablarle con empatía-&gt;SaraEmpatia]]
-[[Presionarla por la discusión con Ernesto-&gt;SaraPresion]]</tw-passagedata><tw-passagedata pid="33" name="SaraEmpatia" tags="" position="1525,1050" size="100,100">(set: $falso to true)
-(if: $ruta is &quot;sola&quot;)[(set: $montielVioSara to true)]
-Valeria le dice que entiende que tenga miedo. Sara tarda en responder. Al final, abre la libreta.
+[[Presionarla por la discusión con Ernesto-&gt;SaraPresion]]</tw-passagedata><tw-passagedata pid="38" name="SaraEmpatia" tags="" position="1675,1300" size="100,100">(set: $falso to true)(set: $deslizSara to true)
+Valeria le dice que entiende que tenga miedo. Sara abre la libreta.
 
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/libreta.png&quot; alt=&quot;&quot;&gt;
 
-—Esta es la esmeralda central en el catálogo de 1998. Y esta es la foto que le tomé ayer. Mire las inclusiones: los tasadores les decimos //jardín//, y no hay dos iguales. Esa piedra es una copia. Se lo dije a Ernesto y discutimos, porque yo quería llamar a la policía. Él me pidió que esperara. Dijo que ya tenía pruebas de quién la cambió.
+|sara&gt;[Esta es la esmeralda central en el catálogo de 1998. Y esta es la foto que le tomé ayer. Las inclusiones no coinciden. Esa piedra es una copia.]
+|sara&gt;[Ernesto sospechaba de don Julián. Por eso discutimos: yo no le creía.]
+|valeria&gt;[¿Habló con Ernesto después de esa discusión?]
+|sara&gt;[No. Anoche estuve en mi casa, dormida. Me despertó la patrulla.]
+|sara&gt;[Pobre Ernesto... Con lo pesado que es ese pisapapeles de bronce de la recepción.]
 
-(if: $ruta is &quot;sola&quot;)[Al salir, Montiel está en la puerta. Sus ojos se quedan un segundo de más en la libreta de Sara.]
+Valeria anota la conversación en su libreta.
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="34" name="SaraPresion" tags="" position="1675,1050" size="100,100">—Varios empleados la oyeron gritarle a Ernesto ayer. ¿Por qué discutieron?
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="39" name="SaraPresion" tags="" position="1825,1300" size="100,100">(set: $zapatos to true)(set: $saraAlerta to true)
+|valeria&gt;[Varios empleados la oyeron gritarle a Ernesto ayer. ¿Por qué discutieron?]
+|sara&gt;[¿Me está acusando? Discutimos por trabajo. Nada más.]
 
-Sara cierra la libreta y la guarda en su bolso.
+Sara cruza las piernas y se acomoda en la silla. Lleva unos zapatos planos, de suela lisa, todavía húmedos en la punta. Nota que Valeria los mira y los esconde bajo la silla.
 
-—Por trabajo. Y no voy a decir una palabra más sin mi abogado.
+|sara&gt;[Llovió toda la noche, detective. Vine caminando.]
 
-Valeria anota: discutió con la víctima horas antes del crimen y se niega a explicar por qué.
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="35" name="InterrogarMontiel" tags="" position="1000,900" size="100,100">(set: $horas to it - 1)(set: $desliz to true)
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="40" name="InterrogarMontiel" tags="" position="1000,1150" size="100,100">(set: $horas to it - 1)
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/retrato-montiel.png&quot; alt=&quot;&quot;&gt;
 
-Montiel la recibe en la recepción. Sobre el mostrador hay un círculo sin polvo, como si algo hubiera estado ahí mucho tiempo.
+Montiel la recibe en la recepción. Sobre el mostrador hay un círculo sin polvo, donde siempre estuvo el pisapapeles de bronce.
 
-—Lo que necesite, detective. Pobre Ernesto... once años con nosotros, y terminar así, golpeado con el pisapapeles de bronce de la recepción.
+|montiel&gt;[Lo que necesite, detective. Ya le dije: me fui a las once, como siempre.]
+|valeria&gt;[¿Nadie abrió la bóveda después de esa hora?]
+|montiel&gt;[Nadie. Y la cámara 7 lleva meses dañada, así que no hay nada que ver ahí.]
 
-Valeria repasa las palabras de la forense: //&quot;el objeto con que lo golpearon no está en esta sala.&quot;// Nadie ha dicho cuál fue el arma.
+Mientras habla, mira dos veces su celular.
 
-(if: $cam7Vista and not $montielAlerta)[ [[Decirle que sabes que la cámara 7 funciona-&gt;MontielCam7]] ]
+(if: ($usb and not $usbPerdida) or $cam7Vista)[ [[Decirle que sabes que estuvo en la bóveda-&gt;MontielConfronta]] ]
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="36" name="MontielCam7" tags="" position="1000,1050" size="100,100">(set: $montielAlerta to true)
-—La cámara 7 no está dañada, señor Montiel. Alguien la volvió a conectar.
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="41" name="MontielConfronta" tags="" position="1000,1300" size="100,100">(set: $vivo to true)(set: $montielAlerta to true)
+|valeria&gt;[La cámara 7 funciona, señor Montiel. Usted estuvo en la bóveda a la 1:35.]
 
-La mandíbula de Montiel se tensa. Se ajusta el reloj dorado.
+Montiel se queda muy quieto. Luego baja la voz.
 
-—Entonces habrá que preguntarle a quien la conectó. Lástima que ya no pueda responder.
+|montiel&gt;[Está bien. Estuve. Asuntos del seguro, cosas que no le incumben. Ernesto me encontró y discutimos.]
+|montiel&gt;[Pero cuando me fui por el muelle, a la 1:44, él estaba vivo. Estaba mirando el celular, como buscando a quién llamar. Se lo juro por mis hijos.]
 
-Sonríe. La sonrisa no le llega a los ojos. Acabas de mostrarle tus cartas.
-
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="37" name="Apagon" tags="" position="1000,1350" size="100,100">(set: $apagonHecho to true)
-(if: $montielVioSara)[(set: $objetivo to &quot;sara&quot;)](else:)[(set: $objetivo to &quot;beto&quot;)]
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="42" name="Apagon" tags="" position="1100,1500" size="100,100">(set: $apagonHecho to true)
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/apagon.png&quot; alt=&quot;&quot;&gt;
 
-&#39;&#39;5:00 a. m.&#39;&#39; Un chasquido, y el edificio entero se queda a oscuras. Solo quedan las luces rojas de emergencia. Valeria está en la sala de monitores. (if: $objetivo is &quot;sara&quot;)[Sara se fue hace un momento al archivo, a buscar un catálogo.]
+&#39;&#39;5:00 a. m.&#39;&#39; Un chasquido, y el edificio entero queda a oscuras. Solo quedan las luces rojas de emergencia. Valeria está en la sala de monitores.
 
-(if: $camInt or $camServ or $cam7)[Los monitores siguen encendidos con la batería de respaldo. En una pantalla, una figura de traje avanza rápido por el pasillo de servicio (if: $objetivo is &quot;sara&quot;)[hacia el archivo, donde está Sara.](else:)[hacia los casilleros del personal.]
+(if: $camInt or $camServ or $cam7)[Los monitores siguen encendidos con la batería de respaldo. En una pantalla, alguien de traje camina rápido por el pasillo de servicio, con un maletín, hacia los casilleros del personal.
 
-[[Quedarte frente a los monitores para identificarla-&gt;ApagonMirar]]
-[[Correr hacia allá-&gt;ApagonCorrer]]
-](else:)[Los monitores están en negro: apagaste las cámaras. En algún lugar del edificio se oyen pasos rápidos.
-
-[[Correr hacia los pasos-&gt;ApagonCorrer]]
-[[Quedarte quieta y esperar a que vuelva la luz-&gt;ApagonCiega]]
-]</tw-passagedata><tw-passagedata pid="38" name="ApagonMirar" tags="" position="850,1500" size="100,100">(set: $identificado to true)
 &lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam05-reloj.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
-&lt;div class=&quot;cam&quot;&gt;CAM 05 — PASILLO DE SERVICIO — 05:02:47&lt;/div&gt;
+&lt;div class=&quot;cam&quot;&gt;CAM 05 — PASILLO DE SERVICIO&lt;/div&gt;
 
-Valeria se acerca a la pantalla. La figura pasa bajo una luz de emergencia y, por un instante, algo dorado brilla en su muñeca.
+En otra pantalla, casi al mismo tiempo, una figura más pequeña se escurre hacia el ala del taller.
 
-(if: $objetivo is &quot;sara&quot;)[(set: $saraPerdida to true)La figura entra al archivo. Valeria ve a Sara retroceder contra un estante. La figura le arranca la libreta y le dice algo al oído. Sara sale corriendo por el muelle de carga, bajo la lluvia.
+Solo puedes ir detrás de una.
 
-Cuando la luz vuelve, Sara no está en ninguna parte.](else:)[(set: $arma to true)La figura abre el casillero de Beto y mete algo envuelto en un pañuelo. Se va por el muelle.
+[[Seguir al hombre del maletín-&gt;PeleaInicio]]
+[[Seguir a la figura pequeña-&gt;ApagonTaller]]
+[[Quedarte mirando los monitores-&gt;ApagonEsperar]]
+](else:)[Los monitores están en negro: apagaste las cámaras. En la oscuridad se oyen dos ruidos a la vez: pasos pesados en el pasillo de servicio, y una puerta que se cierra en el ala del taller.
 
-Cuando vuelve la luz, Valeria abre el casillero de Beto. Adentro, envuelto en un pañuelo de seda, está el pisapapeles de bronce. Tiene sangre seca.]
+[[Ir hacia los pasos pesados-&gt;PeleaInicio]]
+[[Ir hacia el ala del taller-&gt;ApagonTaller]]
+[[Quedarte quieta hasta que vuelva la luz-&gt;ApagonEsperar]]
+]</tw-passagedata><tw-passagedata pid="43" name="PeleaInicio" tags="" position="800,1650" size="100,100">Valeria corre por el pasillo guiándose por las luces rojas. Cerca de los casilleros, una silueta de traje se da vuelta al oír sus pasos.
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="39" name="ApagonCorrer" tags="" position="1000,1500" size="100,100">Valeria sale corriendo por el pasillo, guiándose por las luces rojas.
+|valeria&gt;[¡Policía! ¡Quieto ahí!]
 
-(if: $objetivo is &quot;sara&quot;)[Llega al archivo justo cuando una sombra sale por la otra puerta. Sara está en el piso, temblando, con la libreta apretada contra el pecho.
+La silueta no responde. Levanta el maletín como un garrote y se le viene encima.
 
-—Quiso quitármela —susurra—. No le vi la cara. Pero olía a colonia cara.
+[[Cubrirte-&gt;PeleaCubrirse]]
+[[Lanzarte sobre él-&gt;PeleaLanzarse]]</tw-passagedata><tw-passagedata pid="44" name="PeleaCubrirse" tags="" position="700,1800" size="100,100">Valeria sube los antebrazos. El maletín le golpea los brazos con un ruido seco. Duele, pero aguanta. El impulso deja al hombre desequilibrado, a medio metro de ella.
 
-Sara está a salvo. Y la libreta también.](else:)[(set: $arma to true)Llega a los casilleros. Una sombra huye por el muelle de carga y se pierde en la lluvia. En el piso, donde la sombra soltó algo al tropezar, hay un bulto envuelto en un pañuelo de seda.
+[[Sujetarle la muñeca-&gt;PeleaGanada]]
+[[Golpearlo en el estómago-&gt;PeleaPerdida]]</tw-passagedata><tw-passagedata pid="45" name="PeleaLanzarse" tags="" position="900,1800" size="100,100">Valeria se lanza a su cintura. Caen los dos contra los casilleros con un estruendo metálico. Él es más pesado y queda encima, con el antebrazo apoyado en el pecho de ella.
 
-Es el pisapapeles de bronce. Tiene sangre seca.
+[[Rodar y zafarte-&gt;PeleaGanada]]
+[[Forcejear por el maletín-&gt;PeleaPerdida]]</tw-passagedata><tw-passagedata pid="46" name="PeleaGanada" tags="" position="700,1950" size="100,100">(set: $maletin to true)(set: $plan to true)(set: $vivo to true)(set: $montielAlerta to true)
+Valeria le tuerce la muñeca hasta que el maletín cae al piso. Bajo la luz roja, algo dorado brilla en esa muñeca: un reloj.
 
-No alcanzaste a ver quién era.]
+|valeria&gt;[Montiel.]
+|montiel&gt;[¡Suélteme! ¡Yo no lo maté! ¡Cuando me fui estaba vivo, se lo juro!]
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="40" name="ApagonCiega" tags="" position="1150,1500" size="100,100">Valeria se queda quieta en la oscuridad, con la mano en el arma. Los pasos se alejan. Diez minutos después, vuelve la luz.
+El maletín se abrió al caer. Adentro hay un mapa con la ruta del furgón blindado, un celular barato y un sobre con dinero.
 
-(if: $objetivo is &quot;sara&quot;)[(set: $saraPerdida to true)Valeria va al archivo. Sara no está. Su bolso sigue en el piso, abierto. La libreta de cuero ya no está adentro.](else:)[(set: $plantado to true)Todo parece en orden. Demasiado en orden.]
+|montiel&gt;[Lo del furgón... sí. Eso sí. Pero a Ernesto no lo toqué.]
 
-(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="41" name="Amanecer" tags="" position="1000,1700" size="100,100">&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/amanecer.png&quot; alt=&quot;&quot;&gt;
+Se zafa de un tirón y desaparece en la oscuridad. Cuando vuelve la luz, diez minutos después, Montiel está en la recepción, peinado y sereno, como si nada hubiera pasado. A lo lejos, se oye cerrarse la puerta del muelle.
+
+(if: $saraAlerta)[(set: $saraFugada to true)]
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="47" name="PeleaPerdida" tags="" position="900,1950" size="100,100">(set: $horas to (max: 0, it - 1))
+El hombre es más fuerte. La empuja contra los casilleros y Valeria se golpea la cabeza con el borde metálico. Todo da vueltas.
+
+(if: $usb and not $usbPerdida)[(set: $usbPerdida to true)Siente una mano rápida en su bolsillo. Cuando logra reaccionar, la tarjeta de memoria de la cámara 7 ya no está.
+
+](if: not ((history:) contains &quot;Casilleros&quot;))[(set: $casilleroVacio to true)Desde el piso, oye el golpe de un casillero forzado, y luego pasos que se alejan.
+
+]Cuando logra ponerse de pie, la luz ya volvió. Perdió media hora y no alcanzó a verle la cara.
+
+(if: $saraAlerta)[(set: $saraFugada to true)]
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="48" name="ApagonTaller" tags="" position="1100,1650" size="100,100">(if: not ((history:) contains &quot;Casilleros&quot;))[(set: $casilleroVacio to true)]
+Valeria cruza el ala del taller a tientas. Al fondo, recortada contra la luz roja de la puerta del muelle, una figura pequeña camina hacia el canal con un bulto envuelto en tela.
+
+[[Gritar &quot;¡Alto, policía!&quot;-&gt;TallerGritar]]
+[[Acercarte en silencio-&gt;TallerSilencio]]</tw-passagedata><tw-passagedata pid="49" name="TallerGritar" tags="" position="1050,1800" size="100,100">(set: $armaSara to true)
+La figura se congela y se da vuelta. Es Sara, con un bulto envuelto en su bufanda.
+
+|sara&gt;[¡Detective! Qué susto me dio.]
+|sara&gt;[Lo encontré escondido detrás de los solventes del taller. Se lo iba a llevar.]
+
+Desenvuelve la bufanda. Es el pisapapeles de bronce, con manchas oscuras en una esquina.
+
+|valeria&gt;[¿Y por qué ibas hacia el muelle?]
+|sara&gt;[Estaba buscándola a usted. Con esta oscuridad no sabía por dónde ir.]
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="50" name="TallerSilencio" tags="" position="1200,1800" size="100,100">(set: $armaSara to true)(set: $intentoTirar to true)(set: $saraAlerta to true)
+Valeria avanza pegada a la pared. En el borde del muelle, la figura levanta el brazo para lanzar el bulto al canal. Valeria le agarra la muñeca en el último segundo.
+
+La figura se revuelve y le clava un codazo en las costillas. Valeria no la suelta. El bulto cae sobre el cemento y la tela se abre: es el pisapapeles de bronce, con manchas oscuras en una esquina.
+
+Bajo la luz roja, la cara de la figura queda a la vista. Es Sara.
+
+|sara&gt;[¡Me hace daño! ¡Lo encontré! Iba a... iba a entregárselo.]
+|valeria&gt;[¿Tirándolo al canal?]
+
+Sara no responde.
+
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="51" name="ApagonEsperar" tags="" position="1400,1650" size="100,100">(if: not ((history:) contains &quot;Casilleros&quot;))[(set: $casilleroVacio to true)]
+(if: $camInt or $camServ or $cam7)[Valeria se queda frente a los monitores. En uno, el hombre del traje fuerza el casillero de Ernesto. (if: (history:) contains &quot;Casilleros&quot;)[Revisa el techo, no encuentra nada y cierra de un golpe.](else:)[Arranca algo pegado al techo del casillero y se lo guarda en el bolsillo.] Cuando pasa bajo una luz de emergencia, algo dorado le brilla en la muñeca.
+
+En otro monitor, la figura pequeña cruza el muelle con un bulto. (if: $saraAlerta)[Sale a la calle bajo la lluvia, y no vuelve.](else:)[Se asoma al canal, algo cae al agua, y la figura vuelve a entrar.] ](else:)[Valeria se queda quieta en la oscuridad, con la mano en el arma. Oye el golpe metálico de un casillero forzado. Luego, la puerta del muelle. Diez minutos después, vuelve la luz.]
+
+(if: $saraAlerta)[(set: $saraFugada to true)]
+(link-goto: &quot;Volver a la investigación&quot;, $hub)</tw-passagedata><tw-passagedata pid="52" name="Amanecer" tags="" position="1100,2150" size="100,100">{(set: $pistasSara to 0)
+(if: $llamada)[(set: $pistasSara to it + 1)]
+(if: $huellas)[(set: $pistasSara to it + 1)]
+(if: $reciboReal)[(set: $pistasSara to it + 1)]
+(if: $estatura)[(set: $pistasSara to it + 1)]
+(if: $armaSara)[(set: $pistasSara to it + 1)]
+(if: $intentoTirar)[(set: $pistasSara to it + 1)]
+(if: $deslizSara)[(set: $pistasSara to it + 1)]
+(if: $zapatos)[(set: $pistasSara to it + 1)]
+(if: $angulo)[(set: $pistasSara to it + 1)]}
+&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/amanecer.png&quot; alt=&quot;&quot;&gt;
 
 &#39;&#39;6:00 a. m.&#39;&#39;
 
 La lluvia se detuvo. Por las ventanas entra una luz gris. El comisionado Herrera llega con dos patrulleros.
 
-(if: $plantado)[Uno de los patrulleros se acerca con una bolsa de evidencia: encontró el pisapapeles de bronce en el casillero de Beto, envuelto en un pañuelo.
+Beto espera en la recepción, mordiéndose las uñas. Montiel, de pie junto a la puerta, revisa su reloj. (if: $saraFugada)[Sara no aparece por ningún lado. Su celular está apagado.](else:)[Sara está sentada en el pasillo, con la libreta de cuero sobre las rodillas.]
 
-]
-(if: $saraPerdida)[Sara no aparece por ningún lado. Su celular está apagado.
-
-]—Se acabó el tiempo, Duarte. Necesito un nombre.
+|herrera&gt;[Se acabó el tiempo, Duarte. Necesito un nombre.]
 
 (display: &quot;Libreta&quot;)
 
 [[Acusar a Beto Castaño-&gt;FinalCasoCerrado]]
-[[Acusar a Sara Villamil-&gt;FinalCrimenPasional]]
-[[Acusar a Julián Montiel-&gt;AcusarMontiel]]
-(if: $plan and $falso)[ [[No acusar a nadie todavía y seguir el furgón-&gt;EsperarFurgon]] ]</tw-passagedata><tw-passagedata pid="42" name="AcusarMontiel" tags="" position="1150,1850" size="100,100">(set: $crimen to ($usb and not $usbPerdida) or ($arma and $identificado) or ($chaqueta and $desliz))
-Valeria camina hacia Montiel. El dueño levanta la vista del reloj.
+[[Acusar a Julián Montiel-&gt;FinalSospechoso]]
+[[Acusar a Sara Villamil-&gt;AcusarSara]]
+(if: $plan)[ [[No acusar a nadie todavía y seguir el furgón-&gt;EsperarFurgon]] ]</tw-passagedata><tw-passagedata pid="53" name="AcusarSara" tags="" position="1300,2300" size="100,100">(if: $saraFugada)[Valeria se gira hacia la silla vacía del pasillo, donde Sara estuvo toda la madrugada.
 
-—Julián Montiel, tengo que hacerle unas preguntas. Aquí, delante de todos.
+|herrera&gt;[¿La tasadora? Duarte, esa mujer se fue hace una hora.]
 
-Montiel sonríe con calma y marca el número de su abogado antes de que ella termine la frase.
+[[Ordenar que la busquen-&gt;FinalFuga]]
+](else:)[Valeria camina hacia el pasillo. Sara levanta la vista, sorprendida.
 
-(if: $crimen and $falso)[ [[Poner todas las pruebas sobre el mostrador-&gt;FinalCamara7]] ](else-if: $saraPerdida)[ [[Pedir que localicen a Sara para que declare-&gt;FinalTestigoPerdido]] ](else:)[ [[Enfrentarlo con lo que tienes-&gt;FinalSinPruebas]] ]</tw-passagedata><tw-passagedata pid="43" name="EsperarFurgon" tags="" position="1400,1850" size="100,100">(if: $montielAlerta)[(set: $furgonCancelado to true)]
-—Todavía no, comisionado —dice Valeria—. Si lo acusamos ahora, lo niega todo. Déjeme mostrarle lo que va a pasar a las 9:20.
+|valeria&gt;[Sara Villamil, necesito que me acompañe.]
+|sara&gt;[¿Yo? Detective... si yo quería a Ernesto.]
 
-Le enseña la ruta del furgón, la póliza, la esmeralda falsa. Herrera la mira largo rato y al final asiente.
+(if: $pistasSara &gt;= 2)[ [[Poner las pruebas sobre la mesa-&gt;FinalCamara7]] ](else:)[ [[Enfrentarla con lo que tienes-&gt;FinalSinPruebas]] ]
+]</tw-passagedata><tw-passagedata pid="54" name="EsperarFurgon" tags="" position="1550,2300" size="100,100">(if: $montielAlerta)[(set: $furgonCancelado to true)]
+|valeria&gt;[Todavía no, comisionado. Si lo acusamos ahora, lo niega todo. Déjeme mostrarle lo que va a pasar a las 9:20.]
 
-Montiel se despide de todos con un apretón de manos. Se ve tranquilo. Demasiado tranquilo.
+Le enseña la ruta del furgón y la nota del margen. Herrera la mira largo rato y al final asiente.
 
-(if: $montielAlerta)[ [[9:20 a. m.: el puente de la avenida-&gt;FinalSinPruebas]] ](else:)[ [[9:20 a. m.: el puente de la avenida-&gt;FinalFlagrante]] ]</tw-passagedata><tw-passagedata pid="44" name="FinalCasoCerrado" tags="" position="550,2050" size="100,100">(if: $ruta is &quot;beto&quot;)[Beto te mira sin entender mientras le ponen las esposas. Toda la noche trabajó a tu lado.](else:)[Beto Castaño sale en la parte de atrás de una patrulla, gritando que es inocente.] La tarjeta, la cámara 2, las deudas(if: $plantado)[, el pisapapeles en su casillero]: el comisionado queda satisfecho.
+Montiel se despide de todos con un apretón de manos y sale hacia el hotel de la subasta.
+
+(if: $montielAlerta)[ [[9:20 a. m.: el puente de la avenida-&gt;FinalSinPruebas]] ](else:)[ [[9:20 a. m.: el puente de la avenida-&gt;FinalFlagrante]] ]</tw-passagedata><tw-passagedata pid="55" name="FinalCasoCerrado" tags="" position="700,2500" size="100,100">(if: $ruta is &quot;beto&quot;)[Beto te mira sin entender mientras le ponen las esposas. Trabajó a tu lado toda la noche.](else:)[Beto Castaño sale en la parte de atrás de una patrulla, gritando que es inocente.] La tarjeta, las deudas, los nudillos raspados: el comisionado queda satisfecho.
 
 &#39;&#39;9:20 a. m.&#39;&#39; La radio de la patrulla interrumpe el regreso a la estación: asaltaron el furgón blindado que llevaba el Collar de la Candelaria. Los ladrones escaparon con la joya. La aseguradora tendrá que pagar cuatro millones de dólares.
 
 &lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam06-sonrie.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
-&lt;div class=&quot;cam&quot;&gt;CAM 06 — OFICINA DE GERENCIA — 12:15&lt;/div&gt;
-Julián Montiel se sirve un whisky y sonríe a la cámara.
+&lt;div class=&quot;cam&quot;&gt;CAM 06 — OFICINA DE GERENCIA&lt;/div&gt;
+
+Julián Montiel se sirve un whisky y sonríe.
+
+Esa noche, en una bodega del puerto, Montiel abre el estuche robado y toma una lupa. La sonrisa se le borra despacio. La esmeralda es falsa. Lleva siete años siéndolo.
+
+(if: $saraFugada)[A esa hora, Sara Villamil ya estaba en un avión.](else:)[En la casa de subastas, Sara Villamil guarda en un cajón una bufanda que no va a volver a usar.]
 
 &#39;&#39;FIN — «Caso cerrado»&#39;&#39;
 //Final 1 de 6.//
 
-(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="45" name="FinalCrimenPasional" tags="" position="700,2050" size="100,100">(if: $saraPerdida)[Sara Villamil es capturada al mediodía en la terminal de buses. Haber huido la hace ver culpable.](else:)[Sara Villamil es detenida por la discusión con la víctima horas antes del crimen.] En la estación, la libreta de cuero no aparece entre sus pertenencias.
+(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="56" name="FinalSospechoso" tags="" position="850,2500" size="100,100">Montiel no se resiste. Cuando le ponen las esposas, solo repite una frase: //&quot;Yo no lo maté.&quot;//
 
-&#39;&#39;9:20 a. m.&#39;&#39; Asaltan el furgón blindado que llevaba el Collar de la Candelaria. Los ladrones escapan con la joya.
-
-&lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam06-trituradora.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
-&lt;div class=&quot;cam&quot;&gt;CAM 06 — OFICINA DE GERENCIA — 12:15&lt;/div&gt;
-Montiel arranca una hoja con las fotos de dos esmeraldas y la echa a la trituradora.
-
-&#39;&#39;FIN — «Crimen pasional»&#39;&#39;
-//Final 2 de 6.//
-
-(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="46" name="FinalSinPruebas" tags="" position="850,2050" size="100,100">(if: $furgonCancelado)[Valeria y Herrera esperan escondidos en el puente. A las 9:20 pasa el furgón blindado... y sigue de largo. Nadie lo asalta. El collar falso llega intacto a la subasta.
-
-Montiel canceló el golpe. Sabía que lo estabas vigilando.](else-if: $usbPerdida)[Valeria pide la grabación. El patrullero abre el cajón de la oficina de gerencia: está vacío.
-
-—Qué extraño —dice Montiel—. Yo mismo la vi guardar.](else:)[Valeria le habla de la cámara 7, del reloj, de la bóveda. Pero lo que tiene son sospechas, no pruebas.
-
-—¿Y el motivo? —pregunta el abogado de Montiel, que acaba de llegar—. El collar está intacto en su vitrina.]
-
-En menos de una hora, todo se desarma. Herrera retira a Valeria del caso por &quot;perseguir sin pruebas a un ciudadano respetable&quot;.
-
-Esa tarde, mientras recoge sus cosas en la Casa Montiel, Valeria nota algo sobre la puerta de la antesala.
+(if: $plan or $maletin)[El plan del furgón basta para acusarlo de fraude. ]Pero la acusación de asesinato se derrumba en tres semanas. (if: $vivo)[La propia grabación de la cámara 7 lo demuestra: Ernesto seguía vivo cuando Montiel se fue.](else:)[El sensor de la puerta del muelle y la hora de la muerte lo demuestran: Montiel ya se había ido cuando mataron a Ernesto.] Su abogado lo presenta como &quot;la víctima de una investigación apresurada&quot;. A Valeria la retiran del caso.
 
 &lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam07-final.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
 &lt;div class=&quot;cam&quot;&gt;CAM 07 — ANTESALA BÓVEDA — EN VIVO&lt;/div&gt;
-La luz roja está encendida. La cámara gira despacio y la sigue hasta la salida.
+
+Un mes después, un perito de la aseguradora revisa las fotos de la restauración del collar de 2019. La réplica ya estaba ahí. El informe de esa restauración lo firma S. Villamil.
+
+Para entonces, Sara había renunciado y nadie sabía dónde estaba.
+
+&#39;&#39;FIN — «El sospechoso perfecto»&#39;&#39;
+//Final 2 de 6.//
+
+(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="57" name="FinalSinPruebas" tags="" position="1000,2500" size="100,100">(if: $furgonCancelado)[Valeria y Herrera esperan escondidos en el puente. A las 9:20 pasa el furgón blindado... y sigue de largo. Nadie lo asalta. Montiel canceló el golpe: sabía que lo estabas vigilando.
+
+A las diez, en la subasta, el perito de un comprador examina el collar con lupa y pide el micrófono. La esmeralda es falsa. El escándalo cae entero sobre Montiel.
+
+&lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam06-trituradora.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
+&lt;div class=&quot;cam&quot;&gt;CAM 06 — OFICINA DE GERENCIA&lt;/div&gt;
+
+Montiel destruye papeles durante toda la tarde. Nadie le pregunta nada a Sara Villamil, que ese mismo día presenta su renuncia. El asesinato de Ernesto queda sin resolver.](else:)[Sara llora en la sala de interrogatorios. Su abogado llega en veinte minutos.
+
+|herrera&gt;[Una tasadora que llora por su compañero, sin una sola prueba en su contra. Necesito más que una corazonada, Duarte.]
+
+Sara sale libre antes del mediodía. Tres días después, renuncia.
+
+&lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam07-vivo.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
+&lt;div class=&quot;cam&quot;&gt;CAM 07 — ANTESALA BÓVEDA&lt;/div&gt;
+
+La última vez que la cámara 7 la graba, Sara se detiene frente a la vitrina, como despidiéndose. Valeria tenía razón. Pero tener razón no alcanza.]
 
 &#39;&#39;FIN — «Sin pruebas»&#39;&#39;
 //Final 3 de 6.//
 
-(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="47" name="FinalTestigoPerdido" tags="" position="1000,2050" size="100,100">Los patrulleros buscan a Sara toda la mañana. Su apartamento está vacío. Su celular, apagado.
+(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="58" name="FinalFuga" tags="" position="1150,2500" size="100,100">Los patrulleros buscan a Sara toda la mañana. Su apartamento, a tres cuadras, está vacío. En el aeropuerto confirman que tomó el vuelo de las 7:40 al extranjero.
 
-Sin la tasadora, la esmeralda falsa es solo una teoría. Sin la libreta, no hay comparación. El abogado de Montiel sonríe: &quot;Mi cliente es la víctima aquí, detective. Le mataron a un empleado y usted lo acusa a él&quot;.
+Valeria arma el caso completo en la estación: la restauración de 2019, la réplica, la llamada de Ernesto, el pisapapeles. Todo encaja. Pero Sara ya no está.
 
-La subasta se aplaza una semana. Luego se hace. Nadie vuelve a preguntar por el collar.
-
-Tres meses después, llega a la estación una postal sin remitente, desde el extranjero. Tiene la foto de una esmeralda y dos palabras escritas a mano: //Lo siento.//
+Cuatro meses después, llega a la estación una postal sin remitente.
 
 &lt;img src=&quot;https://rprofe358.github.io/Cam7/img/postal.png&quot; alt=&quot;&quot;&gt;
 
-&#39;&#39;FIN — «Testigo perdido»&#39;&#39;
+En el frente, la foto de una esmeralda enorme, perfecta, con un jardín idéntico al del catálogo de 1998. Por detrás, una sola línea escrita a mano: //&quot;Guárdela de recuerdo. — S.&quot;//
+
+&#39;&#39;FIN — «La fuga»&#39;&#39;
 //Final 4 de 6.//
 
-(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="48" name="FinalCamara7" tags="" position="1150,2050" size="100,100">Valeria pone sobre el mostrador todo lo que reunió esa noche.
+(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="59" name="FinalFlagrante" tags="" position="1450,2500" size="100,100">&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/puente.png&quot; alt=&quot;&quot;&gt;
 
-—La esmeralda que iba a salir a subasta es una copia, señor Montiel. Ese es el motivo. (if: $recibo)[Y aquí está el recibo de la réplica, pagado por usted en 2019. ]Ernesto lo descubrió, y por eso está muerto.
+&#39;&#39;9:20 a. m.&#39;&#39; El furgón blindado entra al puente de la avenida sin escolta. Dos motos le cierran el paso. Los asaltantes no alcanzan a abrir la puerta: las patrullas de Herrera les caen por ambos lados. En el celular de uno de ellos, el último mensaje es de un contacto guardado como &quot;J.M.&quot;.
 
-{(if: $usb and not $usbPerdida)[—Esta es la cámara 7 a la 1:35: usted abriendo la vitrina. Ernesto volvió a conectar la cámara en secreto. Usted creía que estaba apagada.&lt;br&gt;&lt;br&gt;]
-(if: $arma and $identificado)[—Lo vi en el apagón, con ese reloj, escondiendo el pisapapeles en el casillero de Beto.&lt;br&gt;&lt;br&gt;]
-(if: $chaqueta)[—En su carro hay una chaqueta de vigilante mojada. El de la cámara 2 no era Beto: era usted.&lt;br&gt;&lt;br&gt;]
-(if: $desliz)[—Y usted sabía que el arma fue el pisapapeles. Nadie se lo dijo.&lt;br&gt;&lt;br&gt;]
-(if: $sello)[—La bóveda se abrió a la 1:35 con el código maestro. Solo dos personas lo tenían, y una está muerta.&lt;br&gt;&lt;br&gt;]
-(if: $muelle)[—Entró por el muelle de carga, la única puerta sin cámara. Con zapatos de vestir.&lt;br&gt;&lt;br&gt;]}
+A las diez, en el salón del hotel, Montiel levanta una copa para anunciar que la subasta continúa. Valeria entra con dos patrulleros.
 
-Montiel mira las pruebas un largo rato. Luego se quita el reloj dorado y lo deja sobre el mostrador.
+|valeria&gt;[El collar llegó, señor Montiel. Sus amigos no.]
 
-—Vendí el original en 2019 —dice con voz cansada—. Deudas. Cuando anunciaron la subasta, supe que los expertos de los compradores iban a descubrir la copia. Así que el furgón iba a ser asaltado. El seguro pagaba y la casa se salvaba. Esa noche volví a revisar que la copia estuviera bien puesta... y Ernesto entró. Me dijo que lo tenía todo grabado. —Cierra los ojos—. Yo solo quería que se callara.
+En la sala de interrogatorios, Montiel lo admite todo sobre el furgón. Y repite una y otra vez lo mismo:
+
+|montiel&gt;[Pero a Ernesto no lo maté. Cuando me fui, estaba vivo.]
+
+(if: $pistasSara &gt;= 2 and not $saraFugada)[|valeria&gt;[Lo sé.]
+
+Esa misma tarde, Valeria vuelve a la Casa Montiel. Sara está en el taller, empacando sus cosas en una caja. Levanta la vista y entiende todo antes de que Valeria abra la boca.
+
+Montiel se entera en su celda de que el collar que planeaba robarse era falso desde 2019. Dos casos cerrados en un solo día.
+
+&#39;&#39;FIN — «En flagrante»&#39;&#39;
+//Final perfecto. Final 5 de 6.//](else:)[El fraude queda probado, pero el asesinato de Ernesto sigue abierto. Semanas después, un perito de la aseguradora descubre que la réplica existe desde la restauración de 2019, firmada por S. Villamil. (if: $saraFugada)[Sara ya había salido del país.](else:)[Cuando van a buscarla, Sara ya había renunciado y nadie sabía dónde estaba.]
+
+&#39;&#39;FIN — «En flagrante»&#39;&#39;
+//Final 5 de 6.//]
+
+(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="60" name="FinalCamara7" tags="" position="1300,2500" size="100,100">Valeria pone sobre la mesa todo lo que reunió esa noche.
+
+(if: $usb and not $usbPerdida)[&lt;video src=&quot;https://rprofe358.github.io/Cam7/img/cam07-grabacion.mp4&quot; autoplay loop muted playsinline preload=&quot;auto&quot;&gt;&lt;/video&gt;
+&lt;div class=&quot;cam&quot;&gt;CAM 07 — ANTESALA BÓVEDA&lt;/div&gt;
+
+|valeria&gt;[Esta grabación parecía culpar a Montiel. En realidad lo salva: Ernesto seguía vivo cuando él se fue.]
+]{(if: $llamada)[|valeria&gt;[Ernesto la llamó a la 1:52. Usted dijo que no hablaban desde la tarde.] ]
+(if: $huellas)[|valeria&gt;[Las huellas del muelle son de zapato plano, talla treinta y seis.] ]
+(if: $zapatos)[|valeria&gt;[Sus zapatos planos, de suela lisa, estaban mojados. Como los de quien entró por el muelle a las 2:03.] ]
+(if: $reciboReal)[|valeria&gt;[El recibo de la réplica de 2019 no lo retiró Montiel. Lo retiró usted.] ]
+(if: $estatura)[|valeria&gt;[La persona de la cámara 2 es mucho más baja que Beto. La chaqueta le quedaba enorme.] ]
+(if: $angulo)[|valeria&gt;[La forense dice que quien golpeó a Ernesto era bastante más bajo que él.] ]
+(if: $armaSara)[|valeria&gt;[Y en el apagón, usted tenía el pisapapeles.] ]
+(if: $intentoTirar)[|valeria&gt;[Iba a tirarlo al canal.] ]
+(if: $deslizSara)[|valeria&gt;[Y sabía cuál era el arma cuando nadie más lo sabía.] ]}
+
+Sara mira las pruebas un largo rato. De pronto se levanta y corre hacia el pasillo de servicio. Valeria le corta el paso en la puerta del muelle. Sara se detiene al borde del canal, bajo la lluvia fina de la mañana.
+
+|sara&gt;[En 2019 yo restauré ese collar. Nadie iba a notar la diferencia. Nadie la notó en siete años.]
+|sara&gt;[Anoche Ernesto me llamó. Creía que Montiel había cambiado el collar esa misma noche y quería que yo lo confirmara.]
+|sara&gt;[Tenía el catálogo abierto. Comparó las fotos de la restauración... y me miró. Ya lo sabía.]
+|sara&gt;[Yo solo quería que se callara.]
 
 Herrera le pone las esposas.
 
-&#39;&#39;Epílogo.&#39;&#39; Beto queda libre esa misma mañana. Sara declara como testigo. La subasta se cancela. En la sala de monitores, alguien pegó una nota sobre la pantalla de la cámara 7: //&quot;Gracias, Ernesto.&quot;//
+&#39;&#39;Epílogo.&#39;&#39; Beto queda libre esa misma mañana. (if: $plan)[Montiel es arrestado por el plan del furgón, y se entera en su celda de que la joya que pensaba robarse era falsa desde 2019. ](else:)[Montiel se entera esa tarde de que la joya por la que había arriesgado todo era falsa desde 2019. ]La subasta se cancela.
+
+En la sala de monitores, alguien pegó una nota sobre la pantalla de la cámara 7: //&quot;Gracias, Ernesto.&quot;//
 
 &#39;&#39;FIN — «Cámara 7»&#39;&#39;
-//Final verdadero. Final 5 de 6.//
-
-(link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="49" name="FinalFlagrante" tags="" position="1300,2050" size="100,100">&lt;img src=&quot;https://rprofe358.github.io/Cam7/img/puente.png&quot; alt=&quot;&quot;&gt;
-
-&#39;&#39;9:20 a. m.&#39;&#39; El furgón blindado entra al puente de la avenida sin escolta. Dos motos le cierran el paso. Los asaltantes no alcanzan a abrir la puerta: las patrullas de Herrera les caen por ambos lados.
-
-En el celular de uno de ellos, el último mensaje es de un número guardado como &quot;J.M.&quot;: //Puente. 9:20. Sin escolta.//
-
-A las diez, en el salón del hotel, Montiel levanta una copa para anunciar que &quot;a pesar de la tragedia, la subasta continúa&quot;. Valeria entra con dos patrulleros y el collar falso en una bolsa de evidencia.
-
-—Señor Montiel, el collar llegó. Pero sus amigos no.
-
-(if: $crimen)[Con las pruebas de esa noche, la fiscalía le suma el asesinato de Ernesto al fraude.](else:)[El fraude está probado. Días después, uno de los asaltantes, a cambio de una rebaja, cuenta lo que Montiel le confesó sobre la noche en que murió Ernesto.]
-
-&#39;&#39;FIN — «En flagrante»&#39;&#39;
-//Final verdadero alternativo. Final 6 de 6.//
+//Final verdadero. Final 6 de 6.//
 
 (link: &quot;Volver a empezar&quot;)[(reload:)]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
